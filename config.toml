@@ -19,7 +19,6 @@ theme = "diary"
     tabWidth = 2
 
 [params]
-canonifyurls = true
 subtitle = "长恨此身非我有"
 enableGitalk = false
 enableGiscus = false
