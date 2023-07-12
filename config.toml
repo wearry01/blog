@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://wearry01.github.io/blog/"
 DefaultContentLanguage = "en" # Theme's display language, supports: en, fr, zh, zh-hant
 languageCode = "en-us"
 title = "Wearry's Blog"
@@ -19,6 +19,7 @@ theme = "diary"
     tabWidth = 2
 
 [params]
+canonifyurls = true
 subtitle = "长恨此身非我有"
 enableGitalk = false
 enableGiscus = false
