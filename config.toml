@@ -4,6 +4,7 @@ languageCode = "en-us"
 title = "Wearry's Blog"
 copyright = "Wearry >_ 2023"
 theme = "diary"
+canonifyURLs = true
 # googleAnalytics = "UA-123-45"
 
 [markup]

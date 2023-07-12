@@ -20,6 +20,7 @@ categories:
 
 {{< figure
 src="/images/plane-tree.png"
+align="center"
 >}}
 
 那么就只需要考虑本质不同的这样的配对的数量即可.

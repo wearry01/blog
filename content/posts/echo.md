@@ -2,10 +2,10 @@
 title = "落幕回响"
 author = ["Wearry"]
 date = 2023-07-12T16:50:00+08:00
-lastmod = 2023-07-12T23:06:25+08:00
+lastmod = 2023-07-13T00:48:09+08:00
 categories = ["随笔"]
 draft = false
-featured_image = "/images/peking.jpg"
+featured_image = "./images/peking.jpg"
 description = "当时光的列车将要朝着远离青春的方向从四年的最后一站驶出时，回首，我听见过去的声音在心底激起了回响"
 +++
 
