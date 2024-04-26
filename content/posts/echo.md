@@ -2,7 +2,7 @@
 title = "落幕回响"
 author = ["Wearry"]
 date = 2023-07-12T16:50:00+08:00
-lastmod = 2023-07-14T10:00:57+08:00
+lastmod = 2024-04-26T16:29:46+08:00
 categories = ["随笔"]
 draft = false
 featured_image = "./images/peking.jpg"

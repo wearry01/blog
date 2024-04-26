@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<title>趣味数学题</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="收集一些有意思的题目">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="http://localhost:1313/blog/posts/exercise-of-thoughts/">
+  <meta property="og:site_name" content="Wearry&#39;s Blog">
+  <meta property="og:title" content="趣味数学题">
+  <meta property="og:description" content="收集一些有意思的题目">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-02-10T22:04:22+00:00">
+    <meta property="article:modified_time" content="2020-02-10T22:04:22+00:00">
+
+
+
+
+
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="趣味数学题">
+<meta name="twitter:description" content="收集一些有意思的题目">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "abcdefghzd");
+</script>
+
+
+
+  
+
+
+
+
+
+
+      <script src="/blog/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/blog/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/blog/scss/dark-mode.min.5ecb89f0fca8be6eeac907f34b2021b9c538b2c2238d671af5e28f0aa6cce3dd.css" integrity="sha256-XsuJ8Pyovm7qyQfzSyAhucU4ssIjjWca9eKPCqbM490=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"> </script>
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/blog/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/blog/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/blog/about/">
+                    About
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#basel-series" class="nav-basel-series">
+									Basel Series
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#analytical-perspective" class="nav-analytical-perspective">
+									Analytical Perspective
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#algebraic-perspective" class="nav-algebraic-perspective">
+									Algebraic Perspective
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#application" class="nav-application">
+									Application
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#birthday-paradox" class="nav-birthday-paradox">
+									Birthday Paradox
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#proof" class="nav-proof">
+									Proof
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="http://localhost:1313/blog/">
+            Wearry&#39;s Blog
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="http://localhost:1313/blog/">
+        <div class="single-column-header-title">Wearry&#39;s Blog</div>
+        
+        <div class="single-column-header-subtitle">长恨此身非我有</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    趣味数学题
+                    
+                    <div class="post-subtitle">
+                        收集一些有意思的题目
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2020-02-10 22:04
+                        </time>
+                        
+
+                        
+                          
+                            <i class="material-icons" style="">folder</i>
+                              <a href="/categories/%E8%B6%A3%E9%A2%98">趣题</a> &nbsp;
+                          
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="basel-series">Basel Series</h2>
+<p>Calculate</p>
+<p>$$
+\sum_{n=1}^{\infty} \frac{1}{n^2} = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \dots
+$$</p>
+<h3 id="analytical-perspective">Analytical Perspective</h3>
+<p>First notice that：</p>
+<p>$$
+\begin{aligned}
+I=&amp;\int_0^1 \mathrm{d} x \int_0^1 \frac{1}{1-xy} \mathrm{d} y \\
+=&amp;\iint_D \sum_{i=0}^{\infty} (xy)^i \mathrm{d}x\mathrm{d}y \\
+=&amp;\sum_{i=0}^{\infty} \iint_D (xy)^i \mathrm{d}x\mathrm{d}y \\
+=&amp;\sum_{i=0}^{\infty} \left(\int_0^1 x^i \mathrm{d} x\right)^2 \\
+=&amp;\sum_{i=1}^{\infty} \frac{1}{i^2}
+\end{aligned}
+$$</p>
+<p>Now just need to calculate \(I\)，replace variables：</p>
+<p>$$
+\begin{cases}
+x = u + v \\
+y = u - v
+\end{cases},
+\frac{\partial(x, y)}{\partial(u, v)} = \left|\begin{matrix} 1 &amp; 1 \\ 1 &amp; -1 \end{matrix} \right| = -2
+$$</p>
+<p>then：</p>
+<p>$$
+\begin{aligned}
+I &amp;= 2 \iint_{D_{uv}} \frac{1}{1 - u^2 + v^2} \mathrm{d} u \mathrm{d} v \\
+&amp;= 4 \left(\int_0^{\frac{1}{2}} \mathrm{d} u \int_0^{u} \frac{1}{1-u^2+v^2} \mathrm{d} v + \int_{\frac{1}{2}}^{1} \mathrm{d}u \int_0^{1-u} \frac{1}{1-u^2+v^2} \mathrm{d} v\right) \\
+&amp;= 4 \left(\int_0^{\frac{1}{2}} \frac{1}{\sqrt{1-u^2}} \arctan \frac{u}{\sqrt{1-u^2}} \mathrm{d} u + \int_{\frac{1}{2}}^{1} \frac{1}{\sqrt{1-u^2}} \arctan \frac{1-u}{\sqrt{1-u^2}} \mathrm{d} u\right) \\
+&amp;= 4 \left(\int_0^{\frac{1}{2}} \arctan \frac{u}{\sqrt{1-u^2}} \mathrm{d} \arctan \frac{u}{\sqrt{1-u^2}}
+-2       \int_{\frac{1}{2}}^1 \arctan \frac{1-u}{\sqrt{1-u^2}} \mathrm{d} \arctan \frac{1-u}{\sqrt{1-u^2}} \right) \\
+&amp;= 4 \times \frac{1}{2} \times \left(\frac{\pi}{6}\right)^2 + 4 \times \left(\frac{\pi}{6}\right)^2 = \frac{\pi^2}{6} \\
+&amp;&amp; \square
+\end{aligned}
+$$</p>
+<h3 id="algebraic-perspective">Algebraic Perspective</h3>
+<p>From Taylor&rsquo;s series, we know that:</p>
+<p>$$
+\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots
+$$</p>
+<p>Let:</p>
+<p>$$
+f(x) = \frac{\sin(x)}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \dots
+$$</p>
+<p>Obviously the roots of \(f(x)\) are \(n\pi, n \in \mathbb{Z} \backslash {0}\), hence:</p>
+<p>$$
+f(x) = (1 - \frac{x}{\pi})(1 + \frac{x}{\pi})(1 - \frac{x}{2\pi})(1 + \frac{x}{2\pi})\dots
+$$</p>
+<p>Consider the coeficient of \(x^2\), we have:</p>
+<p>$$
+-\left(\frac{1}{\pi^2} + \frac{1}{(2\pi)^2} + \frac{1}{(3\pi)^2} + \dots\right) = -\frac{1}{3!}
+$$</p>
+<p>Which also shows that:</p>
+<p>$$
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+$$</p>
+<h3 id="application">Application</h3>
+<blockquote>
+<p>What&rsquo;s the probability that any two arbitrary positive integers are <strong>relatively prime</strong>?</p>
+</blockquote>
+<p>For any prime \(p\)，those integers won&rsquo;t be <strong>relatively prime</strong> if they are both multiples of \(p\), thus the probability is:</p>
+<p>$$
+\begin{aligned}
+P &amp;= \prod_{p, \mathrm{is\ prime}} \left(1 - \frac{1}{p^2}\right) \
+&amp;= \prod_{p, \mathrm{is\ prime}} \cfrac{1}{\displaystyle \sum_{i=0}^{\infty} \left(\cfrac{1}{p^2}\right)^i} \
+&amp;= \frac{1}{\displaystyle \sum_{i=1}^{\infty} \frac{1}{i^2}} \
+&amp;= \frac{6}{\pi^2}
+\end{aligned}
+$$</p>
+<h2 id="birthday-paradox">Birthday Paradox</h2>
+<blockquote>
+<p>There are \(k\) people whose birthdays are among set \(B\) with size \(n\),
+the probability that there are <strong>at least</strong> a pair of people have the same birthday is greater than \(\frac{1}{2}\) when \(k \ge 1.2 \sqrt{n} + 1\)</p>
+</blockquote>
+<h3 id="proof">Proof</h3>
+<p>Suppose each person&rsquo;s birthday is <strong>independent uniform</strong> in \(B\),
+then the probability that don&rsquo;t exist such a pair is:</p>
+<p>$$
+P = \prod_{i=0}^{k-1} \left(1 - \frac{i}{n}\right)
+$$</p>
+<p>to prove \(P \le \frac{1}{2}\), we use the result in analysis that:</p>
+<blockquote>
+<p>\(\forall x \in \mathbb{R}, 1 + x \le \mathrm{e}^x\)
+<img src="/images/exp.png" alt=""></p>
+</blockquote>
+<p>then:</p>
+<p>$$
+\begin{aligned}
+P &amp;\le \exp \left(\sum_{i=0}^{k-1} -\cfrac{i}{n}\right) \\
+&amp;\le \exp \left(-\frac{(k-1)^2}{2n}\right) \\
+&amp;\le \exp \left(-\frac{(1.2 \sqrt{n})^2}{2n}\right) \\
+&amp;= \exp(-0.72) &lt; \frac{1}{2} \
+\end{aligned}
+$$</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2020-02-10</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/blog/posts/cryptography/">
+			Next<br>Cryptography Notes
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/blog/posts/problem-select/">
+			Previous<br>互测题总结
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="http://localhost:1313/blog/">
+    
+        <div class="nav-title">
+            Wearry&#39;s Blog
+        </div>
+        
+        <div class="nav-subtitle">
+            长恨此身非我有
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/blog/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/blog/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/blog/about/">
+                About
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Wearry &gt;_ 2023
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#basel-series" class="nav-basel-series">
+									Basel Series
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#analytical-perspective" class="nav-analytical-perspective">
+									Analytical Perspective
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#algebraic-perspective" class="nav-algebraic-perspective">
+									Algebraic Perspective
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#application" class="nav-application">
+									Application
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#birthday-paradox" class="nav-birthday-paradox">
+									Birthday Paradox
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#proof" class="nav-proof">
+									Proof
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Wearry &gt;_ 2023
+	
+</div>
+            </div>
+    
+    <script src="/blog/js/journal.js"></script></body>
+</html>

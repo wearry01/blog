@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<title>平面树计数</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="不常见的经典问题, 顺便总结一下Burnside引理吧">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="http://localhost:1313/blog/posts/count-plane-tree/">
+  <meta property="og:site_name" content="Wearry&#39;s Blog">
+  <meta property="og:title" content="平面树计数">
+  <meta property="og:description" content="不常见的经典问题, 顺便总结一下Burnside引理吧">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-12-01T11:03:04+00:00">
+    <meta property="article:modified_time" content="2017-12-01T11:03:04+00:00">
+
+
+
+
+
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="平面树计数">
+<meta name="twitter:description" content="不常见的经典问题, 顺便总结一下Burnside引理吧">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "abcdefghzd");
+</script>
+
+
+
+  
+
+
+
+
+
+
+      <script src="/blog/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/blog/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/blog/scss/dark-mode.min.5ecb89f0fca8be6eeac907f34b2021b9c538b2c2238d671af5e28f0aa6cce3dd.css" integrity="sha256-XsuJ8Pyovm7qyQfzSyAhucU4ssIjjWca9eKPCqbM490=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"> </script>
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/blog/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/blog/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/blog/about/">
+                    About
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%81%9a%e6%b3%95" class="nav-做法">
+									做法
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="http://localhost:1313/blog/">
+            Wearry&#39;s Blog
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="http://localhost:1313/blog/">
+        <div class="single-column-header-title">Wearry&#39;s Blog</div>
+        
+        <div class="single-column-header-subtitle">长恨此身非我有</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    平面树计数
+                    
+                    <div class="post-subtitle">
+                        不常见的经典问题, 顺便总结一下Burnside引理吧
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2017-12-01 11:03
+                        </time>
+                        
+
+                        
+                          
+                            <i class="material-icons" style="">folder</i>
+                              <a href="/categories/%E8%B6%A3%E9%A2%98">趣题</a> &nbsp;
+                          
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="问题描述">问题描述</h2>
+<blockquote>
+<p>给定 \(N\), 求 \(N\) 个点的本质不同的平面树的数量.</p>
+<p>两棵平面树是等价的当且仅当其中一棵能够移动点的位置与另一棵重合, 且过程中仍然是一棵平面树——即在平面内边不交错地进行平移.</p>
+</blockquote>
+<h2 id="做法">做法</h2>
+<p>考虑模型转化 (计算 \(N+1\) 个点的答案):
+取单位圆, 等距地取 \(2N\) 个点, 然后将这些点两两配对连边, 满足所有连边不相交.
+发现它的对偶图恰好是一棵平面树, 像这样:</p>
+<figure><img src="/images/plane-tree.png">
+</figure>
+
+<p>那么就只需要考虑本质不同的这样的配对的数量即可.
+两个圆是等价的当且仅当一个圆可以通过旋转一定的角度与另一个圆重合.
+而在这个圆上共有 \(2N\) 个点, 就意味着有 \(2N\) 个置换, 构成一个置换群.</p>
+<p>置换群下的计数可以用到 Burnside引理 :</p>
+<blockquote>
+<p>$$ N(G, C) = \frac{1}{|G|} { \sum_{f \in G} c(f) } $$</p>
+</blockquote>
+<p>则转化为求置换下的不动点的数量:</p>
+<ul>
+<li>
+<p>不存在置换的情况下, 答案为 Catalan 数的第 \(N\) 项 \(C_N\).
+即将相互匹配的位置看作左右括号, 则所有合法的括号序列都对应一个满足条件的圆.</p>
+</li>
+<li>
+<p>\(N\) 为奇数时, 可能存在一条平分圆的对角线在置换下不变, 计算 \(\frac{N+1}{2}\) 个点的答案即可.</p>
+</li>
+<li>
+<p>考虑旋转置换:</p>
+<p>为了满足旋转之后的边重合, 点 \(i\) 和它的匹配点 \(p_i\) 在旋转后应该仍然是相匹配的.
+则环的数量一定是偶数 \(2d\), 所以环的长度可以表示为 \(\frac{2N}{2d} = \frac{N}{d}\).</p>
+<p>假定置换的阶是 \(e\), \(e &gt; 1, e | N\), 环的数量 \(2d = \frac{2N}{e}\).
+环上与 \(0\) 匹配的点为 \(i\), 不难发现在这些点之间的点的方案数为 \(C_{i-1}\).
+当这些点确定之后, 它们在环上依次经过的 \(e(i+1)\) 个点就确定了.</p>
+</li>
+</ul>
+<p>令 \(f(x)\) 表示 Catalan 数的生成函数, 根据 Catalan 数的递推式得到:</p>
+<p>$$ f(x) = xf^2(x) + 1 $$</p>
+<p>构造 \(B_d\) 表示包含 \(2d\) 个环的置换下不动点的数量.</p>
+<p>$$ B_d = 2\sum_{i = 0}^{d-1} C_i B_{d-i-1} $$</p>
+<p>其中因子 \(2\) 考虑的是 \(i &gt; 2d\) 时用当前置换的逆来计算的情况.</p>
+<p>则 \(B_d\) 的生成函数 \(g(x)\) 满足:</p>
+<p>$$ g(x) = 2x g(x) f(x) + 1 $$</p>
+<p>解得:</p>
+<p>$$ g(x) = (1 - 4x) ^ {-\frac{1}{2}} $$</p>
+<p>于是总的生成函数可以写成:</p>
+<p>$$ p(n) = \frac{1}{2n} \left( [\mathrm{n , is , odd}]\binom{n}{\lfloor\frac{n}{2}\rfloor} - \binom{2n}{n-1} + \sum_{d|n}{\varphi(n/d)\binom {2d}{d}} \right)$$</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2017-12-01</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/blog/posts/noi2018/">
+			Next<br>记NOI2018
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/blog/posts/after-noip-2017/">
+			Previous<br>写在NOIP2017之后
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="http://localhost:1313/blog/">
+    
+        <div class="nav-title">
+            Wearry&#39;s Blog
+        </div>
+        
+        <div class="nav-subtitle">
+            长恨此身非我有
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/blog/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/blog/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/blog/about/">
+                About
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Wearry &gt;_ 2023
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%81%9a%e6%b3%95" class="nav-做法">
+									做法
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Wearry &gt;_ 2023
+	
+</div>
+            </div>
+    
+    <script src="/blog/js/journal.js"></script></body>
+</html>

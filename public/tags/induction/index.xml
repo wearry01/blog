@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Induction on Wearry&#39;s Blog</title>
+    <link>http://localhost:1313/blog/tags/induction/</link>
+    <description>Recent content in Induction on Wearry&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Wearry &gt;_ 2023</copyright>
+    <lastBuildDate>Tue, 07 Jul 2020 21:37:14 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/induction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cryptography Notes</title>
+      <link>http://localhost:1313/blog/posts/cryptography/</link>
+      <pubDate>Tue, 07 Jul 2020 21:37:14 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/cryptography/</guid>
+      <description>&lt;p&gt;Some notes of 🔒 cryptography lessons&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Reconstruct the architecture of this post&lt;/li&gt;&#xA;&lt;li&gt;Complete other contents&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; I: Pseudorandomness&lt;/li&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; II: Cipher&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; III: MAC&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; IV: Attack &amp;amp; Security&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; V: Public-key Cryptography&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

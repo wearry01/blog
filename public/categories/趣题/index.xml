@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>趣题 on Wearry&#39;s Blog</title>
+    <link>http://localhost:1313/blog/categories/%E8%B6%A3%E9%A2%98/</link>
+    <description>Recent content in 趣题 on Wearry&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Wearry &gt;_ 2023</copyright>
+    <lastBuildDate>Mon, 10 Feb 2020 22:04:22 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/categories/%E8%B6%A3%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>趣味数学题</title>
+      <link>http://localhost:1313/blog/posts/exercise-of-thoughts/</link>
+      <pubDate>Mon, 10 Feb 2020 22:04:22 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/exercise-of-thoughts/</guid>
+      <description>Basel Series Calculate&#xA;$$ \sum_{n=1}^{\infty} \frac{1}{n^2} = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \dots $$&#xA;Analytical Perspective First notice that：&#xA;$$ \begin{aligned} I=&amp;amp;\int_0^1 \mathrm{d} x \int_0^1 \frac{1}{1-xy} \mathrm{d} y \\ =&amp;amp;\iint_D \sum_{i=0}^{\infty} (xy)^i \mathrm{d}x\mathrm{d}y \\ =&amp;amp;\sum_{i=0}^{\infty} \iint_D (xy)^i \mathrm{d}x\mathrm{d}y \\ =&amp;amp;\sum_{i=0}^{\infty} \left(\int_0^1 x^i \mathrm{d} x\right)^2 \\ =&amp;amp;\sum_{i=1}^{\infty} \frac{1}{i^2} \end{aligned} $$&#xA;Now just need to calculate \(I\)，replace variables：&#xA;$$ \begin{cases} x = u + v \\ y = u - v \end{cases}, \frac{\partial(x, y)}{\partial(u, v)} = \left|\begin{matrix} 1 &amp;amp; 1 \\ 1 &amp;amp; -1 \end{matrix} \right| = -2 $$</description>
+    </item>
+    <item>
+      <title>互测题总结</title>
+      <link>http://localhost:1313/blog/posts/problem-select/</link>
+      <pubDate>Tue, 02 Oct 2018 10:58:09 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/problem-select/</guid>
+      <description>String Description 称一个仅由a, b, c组成的字符串 \(S\) 是平衡的当且仅当对于 \(S\) 的任意一个连续子串 \(T\), 任意两种字符的出现次数之差都小于等于 \(k\), 求长度为 \(n\) 的平衡串的数量.&#xA;\(n \le 10^9, K \le 8\)&#xA;Solution 定义 \(f_{a, b}(i)\) 表示在前 \(i\) 个字符中 a 和 b 出现次数之差, 在只考虑 a, b 两种字符的条件等价于:&#xA;$$\max_{i=1}^{n} f_{a, b}(i) - \min_{i=1}^{n} f_{a, b}(i) \le k$$&#xA;注意到如果 \(f_{a, b}\) 的值域区间长度为 \(l\), 则被所有长度为 \(k\) 的值域区间计算的次数是 \(k - l + 1\). 记 \(g(x, y, z)\) 表示三种 \(f\) 的值域区间长度限制分别为 \(x, y, z\) 时的方案数, 那么可以容斥计算答案:</description>
+    </item>
+    <item>
+      <title>拓展埃氏筛法小结</title>
+      <link>http://localhost:1313/blog/posts/ex-eratos-sieve/</link>
+      <pubDate>Tue, 21 Aug 2018 19:42:41 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/ex-eratos-sieve/</guid>
+      <description>Description 求:&#xA;$$h(n) = \sum_{i=1}^{n} f(i)$$&#xA;其中 \(f\) 是定义在正整数集下的积性函数, 满足 \(f(p^c)\) 能够快速计算.&#xA;Conversion 首先可以将所有要求的数按照是否只含大于 \(\sqrt{n}\) 的质因子分为两类, 对于第一类数一定是一个质数, 而第二类数一定可以在某个较小的质因子处考虑到, 于是我们只关注不超过 \(\sqrt{n}\) 的那些质因子.&#xA;定义 \(S_k(n, i)\) 表示小于等于 \(n\) 的数中与前 \(i\) 个质数互质的所有数与所有质数的 \(k\) 次方和, 容易得到转移:&#xA;$$ S_k(n, i) = \begin{cases} S_k(n, i-1) &amp;amp; n &amp;lt; p_i^2 \\ S_k(n, i-1) - p_i^k \times \left(S_k(\left \lfloor \frac{n}{p_i} \right \rfloor, i - 1) - S_k(p_{i-1}, i - 1)\right) &amp;amp; \mathrm{otherwise} \end{cases} $$&#xA;在考虑完 \(\sqrt{n}\) 以内的所有质因数后, \(S_k(n)\) 中留下了所有质数的 \(k\) 次方, 这样所有第一类数的函数值都可以快速计算.</description>
+    </item>
+    <item>
+      <title>平面树计数</title>
+      <link>http://localhost:1313/blog/posts/count-plane-tree/</link>
+      <pubDate>Fri, 01 Dec 2017 11:03:04 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/count-plane-tree/</guid>
+      <description>问题描述 给定 \(N\), 求 \(N\) 个点的本质不同的平面树的数量.&#xA;两棵平面树是等价的当且仅当其中一棵能够移动点的位置与另一棵重合, 且过程中仍然是一棵平面树——即在平面内边不交错地进行平移.&#xA;做法 考虑模型转化 (计算 \(N+1\) 个点的答案): 取单位圆, 等距地取 \(2N\) 个点, 然后将这些点两两配对连边, 满足所有连边不相交. 发现它的对偶图恰好是一棵平面树, 像这样:&#xA;那么就只需要考虑本质不同的这样的配对的数量即可. 两个圆是等价的当且仅当一个圆可以通过旋转一定的角度与另一个圆重合. 而在这个圆上共有 \(2N\) 个点, 就意味着有 \(2N\) 个置换, 构成一个置换群.&#xA;置换群下的计数可以用到 Burnside引理 :&#xA;$$ N(G, C) = \frac{1}{|G|} { \sum_{f \in G} c(f) } $$&#xA;则转化为求置换下的不动点的数量:&#xA;不存在置换的情况下, 答案为 Catalan 数的第 \(N\) 项 \(C_N\). 即将相互匹配的位置看作左右括号, 则所有合法的括号序列都对应一个满足条件的圆.&#xA;\(N\) 为奇数时, 可能存在一条平分圆的对角线在置换下不变, 计算 \(\frac{N+1}{2}\) 个点的答案即可.&#xA;考虑旋转置换:&#xA;为了满足旋转之后的边重合, 点 \(i\) 和它的匹配点 \(p_i\) 在旋转后应该仍然是相匹配的. 则环的数量一定是偶数 \(2d\), 所以环的长度可以表示为 \(\frac{2N}{2d} = \frac{N}{d}\).</description>
+    </item>
+    <item>
+      <title>Atcoder 选做</title>
+      <link>http://localhost:1313/blog/posts/atcoder-select/</link>
+      <pubDate>Fri, 30 Jun 2017 21:33:45 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/atcoder-select/</guid>
+      <description>AGC AGC002 F Leftmost Ball 给你\(N\)种不同颜色的球, 每种有\(K\)个, 现在你可以将球任意排列, 但最终的序列中每种颜色的第一个出现位置要被染成\(0\)颜色, 求能够得到的本质不同的序列数, 对\(10^9 + 7\)取模.&#xA;\(N, K \leq 2000\)&#xA;这题正着处理没有什么思路, 但是如果从右往左来会比较好考虑. 我们可以记\(f(i, j)\)表示当前从右往左填剩下\(i\)个\(0\)颜色的球, 还剩下\(j\)种颜色没有放的方案数. 那么每一次的决策就包括放入一个\(0\)颜色的球以及添加一种颜色的\(k-1\)个球:&#xA;\begin{aligned} f(i-1, j) &amp;amp; \leftarrow f(i, j) \mid [i &amp;gt; j] \\ f(i, j-1) &amp;amp; \leftarrow f(i, j) \times {n-i + (n-j) \times (k-1) + k-2 \choose k-2} \end{aligned}&#xA;后面那个公式是可重集, 还有最后的答案要乘以 \(n!\).&#xA;AGC005 D ~K Perm Counting 求长度为\(N\)的排列中, 满足对任意的\(i\), 都有\(|a_i - i| \neq K\)的排列数量.&#xA;\(1 \leq K \lt N \leq 2000\)</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<title>Cryptography Notes</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="http://localhost:1313/blog/posts/cryptography/">
+  <meta property="og:site_name" content="Wearry&#39;s Blog">
+  <meta property="og:title" content="Cryptography Notes">
+  <meta property="og:description" content="Some notes of 🔒 cryptography lessons
+TODO:
+Reconstruct the architecture of this post Complete other contents I: Pseudorandomness II: Cipher III: MAC IV: Attack &amp; Security V: Public-key Cryptography ">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-07-07T21:37:14+00:00">
+    <meta property="article:modified_time" content="2020-07-07T21:37:14+00:00">
+    <meta property="article:tag" content="Probability">
+    <meta property="article:tag" content="Number Theory">
+    <meta property="article:tag" content="Induction">
+
+
+
+
+
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Cryptography Notes">
+<meta name="twitter:description" content="Some notes of 🔒 cryptography lessons
+TODO:
+
+ Reconstruct the architecture of this post
+Complete other contents
+
+ I: Pseudorandomness
+ II: Cipher
+ III: MAC
+ IV: Attack &amp; Security
+ V: Public-key Cryptography
+
+
+">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "abcdefghzd");
+</script>
+
+
+
+  
+
+
+
+
+
+
+      <script src="/blog/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/blog/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/blog/scss/dark-mode.min.5ecb89f0fca8be6eeac907f34b2021b9c538b2c2238d671af5e28f0aa6cce3dd.css" integrity="sha256-XsuJ8Pyovm7qyQfzSyAhucU4ssIjjWca9eKPCqbM490=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"> </script>
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/blog/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/blog/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/blog/about/">
+                    About
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#preliminary-fundamental-discrete-probability" class="nav-preliminary-fundamental-discrete-probability">
+									Preliminary: Fundamental Discrete Probability
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#probability-distribution" class="nav-probability-distribution">
+									Probability Distribution
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#event" class="nav-event">
+									Event
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#the-union-bound" class="nav-the-union-bound">
+									The Union Bound
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#random-variable" class="nav-random-variable">
+									Random Variable
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#uniform-random-variable" class="nav-uniform-random-variable">
+									Uniform Random Variable
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#independence" class="nav-independence">
+									Independence
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#more-about-probability" class="nav-more-about-probability">
+									More about Probability
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#i-pseudorandomness" class="nav-i-pseudorandomness">
+									I: Pseudorandomness
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#pseudo-random-generator" class="nav-pseudo-random-generator">
+									Pseudo-random Generator
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#security" class="nav-security">
+									Security
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#attack-game-prg-and-advantage" class="nav-attack-game-prg-and-advantage">
+									Attack Game (PRG) and Advantage
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#pseudo-random-function" class="nav-pseudo-random-function">
+									Pseudo-random Function
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#notation" class="nav-notation">
+									Notation
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#attack-game-prf" class="nav-attack-game-prf">
+									Attack Game (PRF)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#pseudo-random-permutation" class="nav-pseudo-random-permutation">
+									Pseudo-random Permutation
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#ii-cipher" class="nav-ii-cipher">
+									II: Cipher
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#stream-cipher" class="nav-stream-cipher">
+									Stream Cipher
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#otp" class="nav-otp">
+									One Time Pad
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#perfect-secrecy" class="nav-perfect-secrecy">
+									Perfect Secrecy
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#stream-cipher-in-practice" class="nav-stream-cipher-in-practice">
+									Stream Cipher in Practice
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#bc" class="nav-bc">
+									Block Cipher
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#attack-game-prp--security" class="nav-attack-game-prp--security">
+									Attack Game (PRP) &amp; Security
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#practice" class="nav-practice">
+									Practice
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#iii-message-integrity" class="nav-iii-message-integrity">
+									III: Message Integrity
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#message-authentication-code-mac" class="nav-message-authentication-code-mac">
+									Message Authentication Code (MAC)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#security-of-macs" class="nav-security-of-macs">
+									Security of MACs
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#iv-attack--security" class="nav-iv-attack--security">
+									IV: Attack &amp; Security
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#v-public-key-cryptography" class="nav-v-public-key-cryptography">
+									V: Public-key Cryptography
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="http://localhost:1313/blog/">
+            Wearry&#39;s Blog
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="http://localhost:1313/blog/">
+        <div class="single-column-header-title">Wearry&#39;s Blog</div>
+        
+        <div class="single-column-header-subtitle">长恨此身非我有</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Cryptography Notes
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2020-07-07 21:37
+                        </time>
+                        
+
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/probability">Probability</a>
+                                &nbsp;
+                            
+                                <a href="/tags/number-theory">Number Theory</a>
+                                &nbsp;
+                            
+                                <a href="/tags/induction">Induction</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <p>Some notes of 🔒 cryptography lessons</p>
+<p><strong>TODO</strong>:</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Reconstruct the architecture of this post</li>
+<li>Complete other contents
+<ul>
+<li><input checked="" disabled="" type="checkbox"> I: Pseudorandomness</li>
+<li><input checked="" disabled="" type="checkbox"> II: Cipher</li>
+<li><input disabled="" type="checkbox"> III: MAC</li>
+<li><input disabled="" type="checkbox"> IV: Attack &amp; Security</li>
+<li><input disabled="" type="checkbox"> V: Public-key Cryptography</li>
+</ul>
+</li>
+</ul>
+<h1 id="preliminary-fundamental-discrete-probability"><em>Preliminary: Fundamental Discrete Probability</em></h1>
+<p>Suppose $U$ is a finite set.</p>
+<h2 id="probability-distribution"><em>Probability Distribution</em></h2>
+<blockquote>
+<p>a <code>probability distribution</code> $P$ over $U$ is a function
+$$P: U \rightarrow [0,1]$$
+s.t.
+$$\sum_{x \in U} P(x) = 1$$</p>
+</blockquote>
+<p>Some examples:</p>
+<ul>
+<li>Uniform distribution: $\forall x \in U, P(x) = \dfrac{1}{|U|}$</li>
+<li>Pointed distribution: $\exists x \in U, P(x) = 1$</li>
+</ul>
+<h2 id="event"><em>Event</em></h2>
+<blockquote>
+<p>an <code>event</code> is a subset $E$ of $U$, define the probability of $E$ under <code>probability distribution</code> $P$ as below:
+$$Pr[E] = \sum_{x \in E} P(x)$$</p>
+</blockquote>
+<h3 id="the-union-bound"><em>The Union Bound</em></h3>
+<p>By definition, we can obviously get:</p>
+<p>$$Pr[A_1 \cap A_2] + Pr[A_1 \cup A_2] = Pr[A_1] + Pr[A_2]$$</p>
+<p>Which also implies that:</p>
+<p>$$Pr[A_1 \cup A_2] \le Pr[A_1] + Pr[A_2]$$</p>
+<h2 id="random-variable"><em>Random Variable</em></h2>
+<blockquote>
+<p>a <code>random variable</code> $X$ is a function
+$$X:U \rightarrow V$$
+where $V$ is <strong>range</strong> of $X$</p>
+</blockquote>
+<p>Example <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
+<p>$$
+\begin{aligned}
+X:{0, 1}^n \rightarrow {0, 1} \
+X(b) = LSB(b) \in {0, 1}
+\end{aligned}
+$$</p>
+<p>As you can see, <code>random variable</code> $X$ can also induce <code>probability distribution</code> from $U$ to $V$ (Suppose $P$ is a distribution on $U$):</p>
+<p>$$
+\forall v \in V, Q(v) = Pr[X = v] = Pr[X^{-1}(v)]
+$$</p>
+<h3 id="uniform-random-variable"><em>Uniform Random Variable</em></h3>
+<p>Specially, when $P$ is uniform distribution and $X(r) = r$ for all $r \in U$, then:</p>
+<p>$$
+\forall r \in U, Pr[X = r] = \frac{1}{|U|}
+$$</p>
+<p>this is called <code>uniform random variable</code>, denoted by $X \xleftarrow{R} U$</p>
+<h2 id="independence"><em>Independence</em></h2>
+<ul>
+<li>Two <code>events</code> $A, B$ are independent <strong>iff</strong>: $Pr[A \cap B] = Pr[A] \times Pr[B]$</li>
+<li>Two <code>random variables</code> $A, B$ are independent <strong>iff</strong> $\forall a \in V_A, b \in V_B$:</li>
+</ul>
+<p>$$
+Pr[A = a ,,\mathrm{and},, B = b] = Pr[A = a] \times Pr[B = b]
+$$</p>
+<blockquote>
+<p>For better understanding of independence, consider the example below:
+Suppose a dice numbered by $D = {1, 2, \dots, 6}$ and 2 <code>random variables</code> $A, B$:
+$$ \begin{aligned}
+&amp;A:D \rightarrow {0, 1} &amp;A(x) = [x \equiv 0 \pmod 2] \
+&amp;B:D \rightarrow {0, 1} &amp;B(x) = [x \equiv 0 \pmod 3]
+\end{aligned} $$
+For uniform distribution of $D$, $A, B$ are obviously independent. Think about conditions below:</p>
+<ol>
+<li>$B(x) = [x \equiv 0 \pmod 4]$</li>
+<li>$D = {1, 2, \dots, 5}$</li>
+</ol>
+</blockquote>
+<h2 id="more-about-probability"><em>More about Probability</em></h2>
+<p><a href="https://crypto.stanford.edu/~blynn/pr/">See also</a></p>
+<h1 id="i-pseudorandomness"><em>I: Pseudorandomness</em></h1>
+<p><code>Pseudorandomness</code> measures the extent to which a sequence of numbers, though produced by a completely deterministic and repeatable process, appear to be patternless.</p>
+<h2 id="pseudo-random-generator"><em>Pseudo-random Generator</em></h2>
+<p>A <code>Pseudo-random Generator</code>, or <code>PRG</code> for short, is an efficient, deterministic algorithm $G$ that given as input a <code>seed</code> $s$, computes an output $r$.
+Both $s$ and $r$ come from a finite space, called $\mathcal{S}$ and $\mathcal{R}$ respectively.</p>
+<p>Typically $\mathcal{S}$ and $\mathcal{R}$ are sets of bit strings of some prescribed length. We can also regard $G$ as an abstract function defined over $\mathcal{(S, R)}$:</p>
+<p>$$
+G: \mathcal{S} = {0, 1}^l \rightarrow \mathcal{R} = {0, 1}^L
+$$</p>
+<h3 id="security"><em>Security</em></h3>
+<p>We say a PRG $G$ is secure if $G(s)$ and $r$ are <strong>computational indistinguishable</strong>, among which $s$ is chosen uniform randomly from $\mathcal{S}$ and $r$ is chosen at random from $\mathcal{R}$.</p>
+<p>To illustrate <strong>computational indistinguishability</strong>, the definition is formulated as an attack game:</p>
+<blockquote>
+<h4 id="attack-game-prg-and-advantage"><em>Attack Game (PRG) and Advantage</em></h4>
+<p>For a given PRG $G$ defined over $\mathcal{(S, R)}$,
+and for a given adversary $\mathcal{A}$,
+we define two experiments, Experiment $0$ and Experiment $1$:</p>
+<p><strong>Experiment</strong> $b$:</p>
+<ul>
+<li>
+<p>The Challenger computes $r \in \mathcal{R}$ as follows:
+<img src="/img/PRG-ADV.png" alt="PRG-ADV"></p>
+<ul>
+<li>if $b = 0$, $s \xleftarrow{R} \mathcal{S}, r \leftarrow G(s)$</li>
+<li>if $b = 1$, $r \xleftarrow{R} \mathcal{R}$</li>
+</ul>
+</li>
+<li>
+<p>Given $r$, the adversary computes and outputs a bit $\hat{b} \in {0, 1}$</p>
+</li>
+</ul>
+<p>For $b \in {0, 1}$, let $W_b$ be the event that $\mathcal{A}$ outputs $\hat{b} = 1$ in Experiment $b$. We define $\mathcal{A}$&rsquo;s <code>advantage</code> with respect to $G$ as</p>
+<p>$$
+PRG_{adv} [\mathcal{A}, G] = \left|Pr[W_0] - Pr[W_1]\right|
+$$</p>
+</blockquote>
+<p>Now we can define a PRG $G$ is <strong>secure</strong> if the value $PRG_{adv} [\mathcal{A}, G]$ is negligible <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> for all efficient adversaries $\mathcal{A}$.</p>
+<h2 id="pseudo-random-function"><em>Pseudo-random Function</em></h2>
+<p>A <code>Pseudo-random Function(PRF)</code> $F$ is a deterministic algorithm that has two inputs: a <code>key</code> $k$ and an <code>input data block</code> $x$; its output $y := F(k, x)$ is called an
+<code>output data block</code>. We denote the finite space of $k, x, y$ with $(\mathcal{K, X, Y})$, over which is $F$ defined.</p>
+<p>Intuitively, our notion of security says that for a randomly chosen key $k$, $F(k, \cdot )$ is indistinguishable from a random function from $\mathcal{X}$ to $\mathcal{Y}$</p>
+<blockquote>
+<h3 id="notation"><strong>Notation</strong></h3>
+<p>$$
+Funs[\mathcal{X, Y}] = {f: \mathcal{X} \rightarrow \mathcal{Y}}
+$$
+clearly we know that
+$$
+|Funs[\mathcal{X, Y}]| = |\mathcal{Y}|^{|\mathcal{X}|}
+$$</p>
+</blockquote>
+<h3 id="attack-game-prf"><em>Attack Game (PRF)</em></h3>
+<p>Similarly we can define two experiments, Experiment $0$ and $1$, for a PRF $F$ defined over $(\mathcal{K, X, Y})$:</p>
+<p><strong>Experiment</strong> $b$:</p>
+<ul>
+<li>The challenger selects $f$ as follows:
+<ul>
+<li>if $b = 0$, $k \xleftarrow{R} \mathcal{K}, f \leftarrow F(k, \cdot)$</li>
+<li>if $b = 1$, $f \xleftarrow{R} Funs[\mathcal{X, Y}]$</li>
+</ul>
+</li>
+<li>The adversary $\mathcal{A}$ submits a sequence of queries $x_1, \dots, x_q$, and receives $y_i = f(x_i)$ for each $i$ from the challenger</li>
+<li>The adversary computes $\hat{b} \in {0, 1}$</li>
+</ul>
+<p>Let $W_b$ be the event $\mathcal{A}$ outputs $1$ in Experiment $b$, the <code>advantage</code> is also defined by:</p>
+<p>$$
+PRF_{adv} [\mathcal{A}, F] = |Pr[W_0] - Pr[W_1]|
+$$</p>
+<p>We say a PRF $F$ is <strong>secure</strong> if all efficient adversary $A$ have a negligible advantage.</p>
+<h2 id="pseudo-random-permutation"><em>Pseudo-random Permutation</em></h2>
+<p>Also called <a href="#bc">Block Cipher</a>, is a special PRF which is also invertible.</p>
+<h1 id="ii-cipher"><em>II: Cipher</em></h1>
+<p>Throughout history, there were many ways of encryption, however, some of them have been proved unsafe. The question now is whether a particular <code>cipher</code> is <strong>secure</strong> and how to construct a <strong>secure</strong> one.</p>
+<blockquote>
+<p>A <code>cipher</code> defined over a triple $(\mathcal{K, M, C})$ is a pair of <strong>efficient</strong><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> algos $(E, D)$ where:</p>
+<p>$$
+\begin{aligned}
+E: \mathcal{K \times M} \rightarrow \mathcal{C} \
+D: \mathcal{K \times C} \rightarrow \mathcal{M}
+\end{aligned}
+$$
+s.t. $\forall m \in \mathcal{M}, k \in \mathcal{K}$
+$$
+m = D(k, E(k, m))
+$$
+and $\mathcal{K, M, C}$ denote the space of keys, messages and cipher texts.</p>
+</blockquote>
+<h2 id="stream-cipher"><em>Stream Cipher</em></h2>
+<p>The example below shows the basic idea of stream cipher.</p>
+<h3 id="otp"><em>One Time Pad</em></h3>
+<p>An example cipher over $\mathcal{K, M, C} = {0, 1}^n$ and:</p>
+<p>$$
+\begin{aligned}
+E(k, m) &amp;= k \oplus m \
+D(k, c) &amp;= k \oplus c \
+\end{aligned}
+$$</p>
+<h2 id="perfect-secrecy"><em>Perfect Secrecy</em></h2>
+<p>The basic idea behind perfect secrecy is: cipher text should reveal no &ldquo;info&rdquo; about plain text.</p>
+<blockquote>
+<p>A <code>cipher</code> $(E, D)$ over ${\mathcal{K, M, C}}$ has <code>perfect secrecy</code> <strong>iff</strong>:</p>
+<p>$\forall m_0, m_1 \in \mathcal{M} ,,\mathrm{that},, |m_0| = |m_1|, c \in \mathcal{C}$:
+$$Pr[E(k, m_0) = c] = Pr[E(k, m_1) = c]$$
+where $k \xleftarrow{R} \mathcal{K}$</p>
+</blockquote>
+<p>It&rsquo;s not hard to see that when attacker gets a cipher text, he will have no idea what the plain text is. By definition, we can also prove <a href="#otp">One Time Pad</a> has <code>perfect secrecy</code>.</p>
+<p>However, <code>perfect secrecy</code> is too hard to satisfy because we have theorem says:</p>
+<blockquote>
+<p>If a <code>cipher</code> has <code>perfect secrecy</code>, then:
+$$|\mathcal{K}| \ge |\mathcal{M}|$$
+which means the length of keys mustn&rsquo;t less than length of messages.</p>
+</blockquote>
+<p>That somehow makes no sense for if we have some way sending and receiving such long keys secretly, then it&rsquo;s absolutely unnecessary to use <code>cipher</code>.</p>
+<h3 id="stream-cipher-in-practice"><em>Stream Cipher in Practice</em></h3>
+<p>However, <code>One Time Pad</code> is not mainly used in practice because:</p>
+<ol>
+<li>The key space $\mathcal{K}$ is as large as message space $\mathcal{M}$, which makes no sense in communication.</li>
+<li>For two same message segments in different positions, they would also be same in the cipher text.</li>
+</ol>
+<p>In practice, we have to change some details to solve these problems:</p>
+<ol>
+<li>
+<p>We can implement a <code>PRF</code> $G$ with seed space $\mathcal{S}$ much less than the message space $\mathcal{M}$, and rewrite the process of encryption and decryption as:
+$$
+\begin{aligned}
+E(k, m) &amp;= G(k) \oplus m \
+D(k, c) &amp;= G(k) \oplus c
+\end{aligned}
+$$
+By the properties of <code>PRF</code> we could argue the security.</p>
+</li>
+<li>
+<p>To solve this problem, we can change the key after a fixed length of message or using a nonce, the later one will appear in remain chapters.</p>
+</li>
+</ol>
+<h2 id="bc"><em>Block Cipher</em></h2>
+<p>A <code>block cipher</code> defined over $(\mathcal{K, X})$ is a deterministic $(E, D)$ whose message space and cipher space is same (finite) set $\mathcal{X}$.
+Additionally, for each $k \in \mathcal{K}$, it&rsquo;s necessary that $E(k, \cdot)$ is invertible,
+which also means $f_k := E(k, \cdot)$ is an one-to-one map on finite set $\mathcal{X}$ and $D(k, \cdot) = f_k^{-1}$.</p>
+<p>It&rsquo;s not hard to see that $D(k, E(k, m)) = m$, so the point now is to argue the security of <code>block cipher</code> (also called <code>Pseudo-random Permutation</code>, <code>PRP</code>).
+Before that, let&rsquo;s focus on the properties of invertible function on a finite set $\mathcal{X}$:</p>
+<ol>
+<li>
+<p>Some notation:
+$$
+Perm[\mathcal{X}] = {F \in Funs[\mathcal{X, X}] : F \text{ is invertible}}
+$$</p>
+</li>
+<li>
+<p>Obviously:
+$$
+|Perm[\mathcal{X}]| = |\mathcal{X}|!
+$$</p>
+</li>
+</ol>
+<h3 id="attack-game-prp--security"><em>Attack Game (PRP) &amp; Security</em></h3>
+<p>Similarly with the idea used in attacking <code>PRF</code>,
+we design an attack game for a certain <code>block cipher</code> (or <code>PRP</code>) $\mathcal{E} = (E, D)$ over $(\mathcal{K, X})$ against an attacker $\mathcal{A}$:</p>
+<p>Experiment $b$:</p>
+<ol>
+<li>
+<p>Challenger selects $f$ as follow</p>
+<ul>
+<li>if $b = 0$, $k \xleftarrow{R} \mathcal{K}, f = E(k, \cdot)$</li>
+<li>if $b = 1$, $f \xleftarrow{R} Perm[\mathcal{X}]$</li>
+</ul>
+</li>
+<li>
+<p>Attacker choose a sequence of input $x_1, x_2, \dots, x_q$, and get $y_i = f(x_i)$ from the challenger.</p>
+</li>
+<li>
+<p>Attacker output a $\hat{b} \in {0, 1}$.</p>
+</li>
+</ol>
+<p>The advantage is defined as:</p>
+<p>$$
+BC_{ADV}[\mathcal{A, E}] = |Pr[W_0] - Pr[W_1]|
+$$</p>
+<p>where $W_b$ describe the event that $\mathcal{A}$ outputs $\hat{b} = 1$ in Experiment $b$,
+$\mathcal{E}$ is <strong>secure</strong> if the advantage is negligible for all efficient algorithm $\mathcal{A}$.</p>
+<h3 id="practice">Practice</h3>
+<p>In practice, we often divide messages into &ldquo;blocks&rdquo;, then implement <code>block cipher</code> to them and concate to get the cipher text.</p>
+<h1 id="iii-message-integrity"><em>III: Message Integrity</em></h1>
+<p>In previous chapters, we mainly focused on security against an eavesdropping adversary, which could not change messages en-route.
+In this chapter we turn out attention to active adversaries by startting with the basic question of <em>message integrity</em>: Bob receives a message $m$ from Alice,
+and he wants to convince himself that the message was not modified en-route.</p>
+<p>Alice could send a extra tag $t$ of message $m$ to Bob, when Bob receives the pair $(m, t)$,
+he can determine that by recalculating the tag of $m$ and then checking whether it is $t$.</p>
+<h2 id="message-authentication-code-mac"><em>Message Authentication Code (MAC)</em></h2>
+<p>A <code>MAC</code> system $\mathcal{I} = (S,V)$ is a pair of efficient algorithms, $S$ and $V$, where $S$ is called a <code>signing algorithm</code> and $V$ is called a <code>verification algorithm</code>.
+$S$ is used to generate tags and $V$ is to verify tags.</p>
+<ul>
+<li>$S$ is a probabilistic algorithm that is invoked as $t \xleftarrow{R} S(k, m)$, where $k$ is a key, $m$ is a message.</li>
+<li>$V$ is a deterministic algorithm that is invoked as $r = V(k, m, t)$, where $k$ is a key, $m$ is a message, $t$ is a tag, and $r \in {0, 1}$</li>
+<li>For all keys and all messages:</li>
+</ul>
+<p>$$
+V(k, m, S(k, m)) = 1
+$$</p>
+<p>As usual, we say that keys, messages and tags lie in some finite key space $\mathcal{K, M, T}$. We say that $\mathcal{I} = (S, V)$ is defined over $\mathcal{K, M, T}$.</p>
+<h2 id="security-of-macs"><em>Security of MACs</em></h2>
+<p>Suppose an adversary is attacking a MAC system $\mathcal{I} = (S, V)$. Let $k$ be some randomly chosen MAC key, which is unknown to the attacker. We allow the attacker to request tags $t := S(k, m)$ for arbitrary messages $m$ of its choice. And the attacker need to come up with a <em>new</em> pair $(m, t)$ satisfies $V(k, m, t) = 1$.</p>
+<h1 id="iv-attack--security"><em>IV: Attack &amp; Security</em></h1>
+<h1 id="v-public-key-cryptography"><em>V: Public-key Cryptography</em></h1>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>LSB is a function which gets the last significant bit of a bit-string.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Negligible means small enough so that cannot be detected even by enormous samples.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Theoretically, efficient means runs in polynomial time; Practically it means runs within a certain time period.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2020-07-07</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/blog/posts/pieces-of-memories/">
+			Next<br>零落碎笔
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/blog/posts/exercise-of-thoughts/">
+			Previous<br>趣味数学题
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="http://localhost:1313/blog/">
+    
+        <div class="nav-title">
+            Wearry&#39;s Blog
+        </div>
+        
+        <div class="nav-subtitle">
+            长恨此身非我有
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/blog/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/blog/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/blog/about/">
+                About
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Wearry &gt;_ 2023
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#preliminary-fundamental-discrete-probability" class="nav-preliminary-fundamental-discrete-probability">
+									Preliminary: Fundamental Discrete Probability
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#probability-distribution" class="nav-probability-distribution">
+									Probability Distribution
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#event" class="nav-event">
+									Event
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#the-union-bound" class="nav-the-union-bound">
+									The Union Bound
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#random-variable" class="nav-random-variable">
+									Random Variable
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#uniform-random-variable" class="nav-uniform-random-variable">
+									Uniform Random Variable
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#independence" class="nav-independence">
+									Independence
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#more-about-probability" class="nav-more-about-probability">
+									More about Probability
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#i-pseudorandomness" class="nav-i-pseudorandomness">
+									I: Pseudorandomness
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#pseudo-random-generator" class="nav-pseudo-random-generator">
+									Pseudo-random Generator
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#security" class="nav-security">
+									Security
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#attack-game-prg-and-advantage" class="nav-attack-game-prg-and-advantage">
+									Attack Game (PRG) and Advantage
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#pseudo-random-function" class="nav-pseudo-random-function">
+									Pseudo-random Function
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#notation" class="nav-notation">
+									Notation
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#attack-game-prf" class="nav-attack-game-prf">
+									Attack Game (PRF)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#pseudo-random-permutation" class="nav-pseudo-random-permutation">
+									Pseudo-random Permutation
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#ii-cipher" class="nav-ii-cipher">
+									II: Cipher
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#stream-cipher" class="nav-stream-cipher">
+									Stream Cipher
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#otp" class="nav-otp">
+									One Time Pad
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#perfect-secrecy" class="nav-perfect-secrecy">
+									Perfect Secrecy
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#stream-cipher-in-practice" class="nav-stream-cipher-in-practice">
+									Stream Cipher in Practice
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#bc" class="nav-bc">
+									Block Cipher
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#attack-game-prp--security" class="nav-attack-game-prp--security">
+									Attack Game (PRP) &amp; Security
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#practice" class="nav-practice">
+									Practice
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#iii-message-integrity" class="nav-iii-message-integrity">
+									III: Message Integrity
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#message-authentication-code-mac" class="nav-message-authentication-code-mac">
+									Message Authentication Code (MAC)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#security-of-macs" class="nav-security-of-macs">
+									Security of MACs
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#iv-attack--security" class="nav-iv-attack--security">
+									IV: Attack &amp; Security
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#v-public-key-cryptography" class="nav-v-public-key-cryptography">
+									V: Public-key Cryptography
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Wearry &gt;_ 2023
+	
+</div>
+            </div>
+    
+    <script src="/blog/js/journal.js"></script></body>
+</html>

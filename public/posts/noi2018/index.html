@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<title>记NOI2018</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="折腾了好久终于把博客修好了, 来填一些坑">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="http://localhost:1313/blog/posts/noi2018/">
+  <meta property="og:site_name" content="Wearry&#39;s Blog">
+  <meta property="og:title" content="记NOI2018">
+  <meta property="og:description" content="折腾了好久终于把博客修好了, 来填一些坑">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2018-07-30T08:38:56+00:00">
+    <meta property="article:modified_time" content="2018-07-30T08:38:56+00:00">
+
+
+
+
+
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="记NOI2018">
+<meta name="twitter:description" content="折腾了好久终于把博客修好了, 来填一些坑">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "abcdefghzd");
+</script>
+
+
+
+  
+
+
+
+
+
+
+      <script src="/blog/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/blog/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/blog/scss/dark-mode.min.5ecb89f0fca8be6eeac907f34b2021b9c538b2c2238d671af5e28f0aa6cce3dd.css" integrity="sha256-XsuJ8Pyovm7qyQfzSyAhucU4ssIjjWca9eKPCqbM490=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"> </script>
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/blog/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/blog/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/blog/about/">
+                    About
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#day--1" class="nav-day--1">
+									Day -1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#day-0" class="nav-day-0">
+									Day 0
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#day-1" class="nav-day-1">
+									Day 1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#day-15" class="nav-day-15">
+									Day 1.5
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#day-2" class="nav-day-2">
+									Day 2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%80%bb%e7%bb%93" class="nav-总结">
+									总结
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="http://localhost:1313/blog/">
+            Wearry&#39;s Blog
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="http://localhost:1313/blog/">
+        <div class="single-column-header-title">Wearry&#39;s Blog</div>
+        
+        <div class="single-column-header-subtitle">长恨此身非我有</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    记NOI2018
+                    
+                    <div class="post-subtitle">
+                        折腾了好久终于把博客修好了, 来填一些坑
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2018-07-30 08:38
+                        </time>
+                        
+
+                        
+                          
+                            <i class="material-icons" style="">folder</i>
+                              <a href="/categories/%E5%A4%8D%E7%9B%98">复盘</a> &nbsp;
+                          
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="day--1">Day -1</h2>
+<p>上午在家无所事事, 收了下行李, 下午就到洋湖报到去了, 然后听说笔试时间调整到了上午, 感觉有点慌整个晚上都在背笔试.</p>
+<h2 id="day-0">Day 0</h2>
+<p>上午考笔试, 比预料中的简单很多, 没有什么快捷键之类的坑题也没有挂分, 试机就打了一个最简单的配置就跑了.</p>
+<p>下午找了一间教室自习, 不知道干什么, 晚上懒得复习什么早早地睡了, 奇怪的是居然丝毫不紧张.</p>
+<h2 id="day-1">Day 1</h2>
+<p>第一试, 看了看题, 觉得题意都挺好理解的, 难度也基本按照题目顺序.</p>
+<p>就直接开始写T1了, 写完 \(\log^2\) 过了大样例直接丢到一边了, 然后看T2, 推了一个看起来有理有据的结论, 但不是很会算答案搞了很久大样例四个全错, 想了一下随便打了个特判过了其中两个, 又改了一下特判才在考试一半时间的时候过了大样例.</p>
+<p>期间去上了一个厕所, 用掉20min&hellip;</p>
+<p>看T3惊喜地发现68分没啥难度, 飞快地码完过了大样例还有一个半小时, 正准备回去继续做T2最后20分的时候发现T1可能跑不过, 卡了很久的常, 期间竟然检查出好多致命的错误, 然后心里特别虚地不停检查, T2也没有继续想了.</p>
+<p>好在最后并没有挂分.</p>
+<h2 id="day-15">Day 1.5</h2>
+<p>鸽了社会活动, 在自习室打出了防沉迷警告&hellip;</p>
+<h2 id="day-2">Day 2</h2>
+<p>看完题目一直在想哪道题最简单, 然后T1补充了一个条件&hellip;</p>
+<p>用了两个小时都没有从T1的倒数第二步推出最后一步, 想想当时可能真的受到了降智打击, 还自信地觉得T2比较可做, 码了很久发现是假算法, 感觉很慌跑去写T3暴力, 回来想先写T2的45分又不想放弃T1, 最后连T2的45分都没拿到&hellip;</p>
+<p>感觉心态很崩, 虽然最后查分发现意外的多了5分(大雾).</p>
+<h2 id="总结">总结</h2>
+<p>好像不知从什么时候开始, 身上一直有某种二试Debuff存在, 可能经常性的因为第一试考得不错, 而对多数情况下更难的二试心存轻视, 也没能调整好自己的心态吧.</p>
+<p>不管怎样, 接下来的OI生涯, 要更加珍惜!</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2018-07-30</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/blog/posts/ex-eratos-sieve/">
+			Next<br>拓展埃氏筛法小结
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/blog/posts/count-plane-tree/">
+			Previous<br>平面树计数
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="http://localhost:1313/blog/">
+    
+        <div class="nav-title">
+            Wearry&#39;s Blog
+        </div>
+        
+        <div class="nav-subtitle">
+            长恨此身非我有
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/blog/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/blog/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/blog/about/">
+                About
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Wearry &gt;_ 2023
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#day--1" class="nav-day--1">
+									Day -1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#day-0" class="nav-day-0">
+									Day 0
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#day-1" class="nav-day-1">
+									Day 1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#day-15" class="nav-day-15">
+									Day 1.5
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#day-2" class="nav-day-2">
+									Day 2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%80%bb%e7%bb%93" class="nav-总结">
+									总结
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Wearry &gt;_ 2023
+	
+</div>
+            </div>
+    
+    <script src="/blog/js/journal.js"></script></body>
+</html>
