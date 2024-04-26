@@ -1,11 +1,9 @@
-baseURL = "https://wearry01.github.io/blog"
+baseURL = "https://wearry01.github.io"
 DefaultContentLanguage = "en" # Theme's display language, supports: en, fr, zh, zh-hant
 languageCode = "en-us"
 title = "Wearry's Blog"
 copyright = "Wearry >_ 2023"
 theme = "typo"
-disableKinds = ['taxonomy']
-canonifyURLs = true
 # googleAnalytics = "UA-123-45"
 
 [params]
@@ -42,10 +40,18 @@ url = "/photos"
 # Syntax highligth on code blocks, all styles: 
 # https://xyproto.github.io/splash/docs/all.html
 # I suggest algol
+
 [markup]
 [markup.highlight]
 style = 'algol'
 
+[module]
+[[module.mounts]]
+source = 'assets'
+target = 'assets'
+[[module.mounts]]
+source = 'static'
+target = 'assets'
 
 # [markup]
 #   [markup.highlight]
