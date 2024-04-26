@@ -45,14 +45,6 @@ url = "/photos"
 [markup.highlight]
 style = 'algol'
 
-[module]
-[[module.mounts]]
-source = 'assets'
-target = 'assets'
-[[module.mounts]]
-source = 'static'
-target = 'assets'
-
 # [markup]
 #   [markup.highlight]
 #     codeFences = true
