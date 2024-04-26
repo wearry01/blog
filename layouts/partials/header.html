@@ -1,0 +1,21 @@
+{{/* Header */}}
+
+<div class="header">
+    <h1 class="header-title">{{ site.Title }}</h1>
+    <h3 class="header-subtitle">{{ site.Params.subtitle }}</h3>
+
+    <div class="flex">
+        {{ $currentPage := . }}
+
+        {{ with site.Params.menu }}
+        {{ range . }}
+        <p class="small {{ if eq .url $currentPage.Path }} bold {{end}}">
+            <a href="{{.url}}">
+                /{{.name }}
+            </a>
+        </p>
+        {{ end }}
+        {{ end }}
+    </div>
+
+</div>

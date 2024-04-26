@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Tags | Wearry&#39;s Blog</title>
+
+
+<link rel="stylesheet" href="/blog/assets/combined.min.e962532feeb5740101e74674a3b76810a4b11df3e73378622fd233e3e9f06c82.css" media="all">
+
+
+
+
+
+</head>
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+    <h1 class="header-title">Wearry&#39;s Blog</h1>
+
+    <div class="flex">
+        
+
+        
+    </div>
+
+</div>
+    </header>
+
+    <main class="main">
+      
+<h1>Tags</h1>
+
+
+
+
+
+
+
+
+<div class="post-line">
+    <p class="post-date">7 Jul 2020 </p>
+    <p class="post-title"> <a href="/blog/tags/probability/">Probability</a></p>
+</div>
+
+
+
+<div class="pagination">
+    <div class="pagination-control">
+        
+        <a href="http://localhost:1313/blog/tags/page/4/">
+            prev
+        </a>
+        
+    </div>
+    <div class="page-number">
+        <p>
+            5/7
+        </p>
+    </div>
+    <div class="pagination-control">
+        
+        <a href="http://localhost:1313/blog/tags/page/6/">
+            next
+        </a>
+        
+    </div>
+</div>
+
+
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Powered by
+    <a href="https://gohugo.io/">Hugo</a>
+    and
+    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+</p>
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
+</html>

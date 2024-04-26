@@ -1,400 +1,189 @@
 <!DOCTYPE html>
-<html><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
-<title>趣题</title>
+<html lang="en-us"
+  dir="ltr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<link rel="stylesheet" href="/css/justifiedGallery.min.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<title>趣题 | Wearry&#39;s Blog</title>
+
+
+<link rel="stylesheet" href="/assets/combined.min.e962532feeb5740101e74674a3b76810a4b11df3e73378622fd233e3e9f06c82.css" media="all">
 
 
 
 
-<meta charset="utf-8">
-<meta name="X-UA-Compatible" content="IE=edge">
-<meta name="google-site-verification" content="">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-<meta content="telephone=no" name="format-detection">
-<meta name="description" content="">
-<meta name="renderer" content="webkit">
-<meta name="theme-color" content="#ffffff">
-
-
-
-<meta property="og:url" content="http://localhost:1313/blog/tags/%E8%B6%A3%E9%A2%98/">
-  <meta property="og:site_name" content="Wearry&#39;s Blog">
-  <meta property="og:title" content="趣题">
-  <meta property="og:description" content="My HomePage Description">
-  <meta property="og:locale" content="en-us">
-  <meta property="og:type" content="website">
-
-
-
-
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="趣题">
-<meta name="twitter:description" content="My HomePage Description">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "abcdefghzd");
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      inlineMath: [['\\[', '\\]'], ['$', '$'], ['\\(', '\\)']]
+    }
+  };
 </script>
 
 
 
-  
-
-
-
-
-
-
-    <link type="text/css" rel="stylesheet" href="/blog/vendor/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="/blog/scss/dark-mode.min.5ecb89f0fca8be6eeac907f34b2021b9c538b2c2238d671af5e28f0aa6cce3dd.css" integrity="sha256-XsuJ8Pyovm7qyQfzSyAhucU4ssIjjWca9eKPCqbM490=" media="screen">
-
-
-<link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Material+Icons">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"> </script>
-
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
 
 
 </head>
-<body>
-    	<div id="app"><div class="single-column-drawer-container" id="drawer"
-     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
-    <div class="drawer-content">
-        <div class="drawer-menu">
-            
-            
-            
-                
-                
-                
-                
-                
-                <a class="a-block drawer-menu-item false" href="/blog/posts">
-                    Archive
-                </a>
-                
-            
-                
-                
-                
-                    
-                
-                
-                
-                <a class="a-block drawer-menu-item active" href="/blog/tags">
-                    Tags
-                </a>
-                
-            
-                
-                
-                
-                
-                
-                <a class="a-block drawer-menu-item false" href="/blog/about/">
-                    About
-                </a>
-                
-            
-            
-        </div>
-    </div>
-</div>
-<transition name="fade">
-    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
-</transition>
-<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
-    <div id="navBackground" class="nav-background"></div>
-    <div class="container container-narrow nav-content">
-        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
-            <i class="material-icons">
-                menu
-            </i>
-        </button>
-        <a id="navTitle" class="navbar-brand" href="http://localhost:1313/blog/">
-            Wearry&#39;s Blog
-        </a>
-        
-        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
-            <i class="material-icons" id="darkModeToggleIcon2">
-                dark_mode
-            </i>
-        </button>
-        
-    </div>
-</nav>
-<div class="single-column-header-container" id="pageHead"
-     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
-    <a href="http://localhost:1313/blog/">
-        <div class="single-column-header-title">Wearry&#39;s Blog</div>
-        
-        <div class="single-column-header-subtitle">长恨此身非我有</div>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+    <h1 class="header-title">Wearry&#39;s Blog</h1>
+    <h3 class="header-subtitle">长恨此身非我有</h3>
+
+    <div class="flex">
         
 
-    </a>
-</div>
-
-            <div id="content">
-                <div id="streamContainer" class="stream-container">
-
-    <div class="post-list-container post-list-container-shadow">
-        <div class="post-item-wrapper post-item-wrapper-no-hover">
-            <div class="post-item post-item-no-gaps">
-                <div class="post-item-info-wrapper">
-                    <div class="post-item-title  post-item-title-small">
-                        <a href="/blog/tags/">Tags</a> / 趣题
-                    </div>
-                </div>
-            </div>
-        </div><a href="/blog/posts/exercise-of-thoughts/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            趣味数学题
-                        </div>
-                        <div class="post-item-meta">
-    2020-02-10
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        </a><a href="/blog/posts/problem-select/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            互测题总结
-                        </div>
-                        <div class="post-item-meta">
-    2018-10-02
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        </a><a href="/blog/posts/ex-eratos-sieve/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            拓展埃氏筛法小结
-                        </div>
-                        <div class="post-item-meta">
-    2018-08-21
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        </a><a href="/blog/posts/count-plane-tree/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            平面树计数
-                        </div>
-                        <div class="post-item-meta">
-    2017-12-01
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        </a><a href="/blog/posts/atcoder-select/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            Atcoder 选做
-                        </div>
-                        <div class="post-item-meta">
-    2017-06-30
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        </a></div>
-
-
-                    </div>
-            </div><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="http://localhost:1313/blog/">
-    
-        <div class="nav-title">
-            Wearry&#39;s Blog
-        </div>
-        
-        <div class="nav-subtitle">
-            长恨此身非我有
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
         
         
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/blog/posts">
-                Archive
+        <p class="small ">
+            <a href="/">
+                /home
             </a>
-            
+        </p>
         
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/blog/tags">
-                Tags
+        <p class="small ">
+            <a href="/posts">
+                /posts
             </a>
-            
+        </p>
         
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/blog/about/">
-                About
+        <p class="small ">
+            <a href="/photos">
+                /photos
             </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	Wearry &gt;_ 2023
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    <div class="toc-wrapper">
-        
-
-        
-    </div>
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
-            :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
+        </p>
         
         
     </div>
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+<h1>趣题</h1>
+
+
+
+
+
+
+
+
+
+
+<div class="post-line">
+    <p class="post-date">10 Feb 2020 </p>
+    <p class="post-title"> <a href="/posts/exercise-of-thoughts/">趣味数学题</a></p>
+</div>
+
+
+<div class="post-line">
+    <p class="post-date">2 Oct 2018 </p>
+    <p class="post-title"> <a href="/posts/problem-select/">互测题总结</a></p>
+</div>
+
+
+<div class="post-line">
+    <p class="post-date">21 Aug 2018 </p>
+    <p class="post-title"> <a href="/posts/ex-eratos-sieve/">拓展埃氏筛法小结</a></p>
+</div>
+
+
+<div class="post-line">
+    <p class="post-date">1 Dec 2017 </p>
+    <p class="post-title"> <a href="/posts/count-plane-tree/">平面树计数</a></p>
+</div>
+
+
+<div class="post-line">
+    <p class="post-date">30 Jun 2017 </p>
+    <p class="post-title"> <a href="/posts/atcoder-select/">Atcoder 选做</a></p>
 </div>
 
 
 
 
-<div id="single-column-footer">
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
 
-&copy;
-	
-	Wearry &gt;_ 2023
-	
-</div>
-            </div>
-    
-    <script src="/blog/js/journal.js"></script></body>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Powered by
+<a href="https://gohugo.io/">Hugo</a>
+and
+<a href="https://github.com/tomfran/typo">tomfran/typo</a>
+© Wearry >_ 2024 
+</p>
+
+<script id="gallery-script" src="/js/gallery.js"></script>
+
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
 </html>

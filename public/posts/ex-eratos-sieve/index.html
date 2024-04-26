@@ -1,322 +1,133 @@
 <!DOCTYPE html>
-<html><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
-<title>拓展埃氏筛法小结</title>
+<html lang="en-us"
+  dir="ltr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<link rel="stylesheet" href="/css/justifiedGallery.min.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<title>拓展埃氏筛法小结 | Wearry&#39;s Blog</title>
+
+
+<link rel="stylesheet" href="/assets/combined.min.e962532feeb5740101e74674a3b76810a4b11df3e73378622fd233e3e9f06c82.css" media="all">
 
 
 
 
-<meta charset="utf-8">
-<meta name="X-UA-Compatible" content="IE=edge">
-<meta name="google-site-verification" content="">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-<meta content="telephone=no" name="format-detection">
-<meta name="description" content="学完洲阁筛之后忘得差不多了, 不过现在已经可以将洲阁筛扔进垃圾桶了">
-<meta name="renderer" content="webkit">
-<meta name="theme-color" content="#ffffff">
-
-
-
-<meta property="og:url" content="http://localhost:1313/blog/posts/ex-eratos-sieve/">
-  <meta property="og:site_name" content="Wearry&#39;s Blog">
-  <meta property="og:title" content="拓展埃氏筛法小结">
-  <meta property="og:description" content="学完洲阁筛之后忘得差不多了, 不过现在已经可以将洲阁筛扔进垃圾桶了">
-  <meta property="og:locale" content="en-us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2018-08-21T19:42:41+00:00">
-    <meta property="article:modified_time" content="2018-08-21T19:42:41+00:00">
-    <meta property="article:tag" content="趣题">
-
-
-
-
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="拓展埃氏筛法小结">
-<meta name="twitter:description" content="学完洲阁筛之后忘得差不多了, 不过现在已经可以将洲阁筛扔进垃圾桶了">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "abcdefghzd");
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      inlineMath: [['\\[', '\\]'], ['$', '$'], ['\\(', '\\)']]
+    }
+  };
 </script>
 
 
 
-  
-
-
-
-
-
-
-      <script src="/blog/js/toc.js"></script>
-    
-    <link type="text/css" rel="stylesheet" href="/blog/vendor/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="/blog/scss/dark-mode.min.5ecb89f0fca8be6eeac907f34b2021b9c538b2c2238d671af5e28f0aa6cce3dd.css" integrity="sha256-XsuJ8Pyovm7qyQfzSyAhucU4ssIjjWca9eKPCqbM490=" media="screen">
-
-
-<link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Material+Icons">
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="/blog/vendor/js/md5.min.js"></script><script>
-  var gitalk = new Gitalk({
-  clientID: 'b17a9177804d710e1313',
-  clientSecret: '1b4d3b7cc2317b59e42d52241d7ac01693badd89',
-  repo: 'wearry01.github.io',
-  owner: 'wearry01',
-  admin: ['wearry01'],
-  id: md5(location.pathname),
-  distractionFreeMode: 'false'
-  });
-  window.onload = function () {
-        gitalk.render('gitalk-container')
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"> </script>
-
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
 
 
 </head>
-<body>
-    	<div id="app"><div class="single-column-drawer-container" id="drawer"
-     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
-    <div class="drawer-content">
-        <div class="drawer-menu">
-            
-            
-            
-                
-                
-                
-                    
-                
-                
-                
-                <a class="a-block drawer-menu-item active" href="/blog/posts">
-                    Archive
-                </a>
-                
-            
-                
-                
-                
-                
-                
-                <a class="a-block drawer-menu-item false" href="/blog/tags">
-                    Tags
-                </a>
-                
-            
-                
-                
-                
-                
-                
-                <a class="a-block drawer-menu-item false" href="/blog/about/">
-                    About
-                </a>
-                
-            
-            
-            <div class="toc">
 
 
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- CATALOG -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#description" class="nav-description">
-									Description
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#conversion" class="nav-conversion">
-									Conversion
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#code" class="nav-code">
-									Code
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
 
-</div>
-            
-        </div>
-    </div>
-</div>
-<transition name="fade">
-    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
-</transition>
-<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
-    <div id="navBackground" class="nav-background"></div>
-    <div class="container container-narrow nav-content">
-        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
-            <i class="material-icons">
-                menu
-            </i>
-        </button>
-        <a id="navTitle" class="navbar-brand" href="http://localhost:1313/blog/">
-            Wearry&#39;s Blog
-        </a>
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+    <h1 class="header-title">Wearry&#39;s Blog</h1>
+    <h3 class="header-subtitle">长恨此身非我有</h3>
+
+    <div class="flex">
         
-        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
-            <i class="material-icons" id="darkModeToggleIcon2">
-                dark_mode
-            </i>
-        </button>
+
+        
+        
+        <p class="small ">
+            <a href="/">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/posts">
+                /posts
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/photos">
+                /photos
+            </a>
+        </p>
+        
         
     </div>
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+<div >
+
+  <div class=" single-intro-container">
+
+    
+
+    <h1 class="single-title">拓展埃氏筛法小结</h1>
+    <p class="single-summary">学完洲阁筛之后忘得差不多了, 不过现在已经可以将洲阁筛扔进垃圾桶了</p>
+
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2018-08-21T19:42:41&#43;00:00">Aug 21, 2018 19:42</time>
+      
+      
+    </p>
+
+  </div>
+
+  
+
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#conversion">Conversion</a></li>
+    <li><a href="#code">Code</a></li>
+  </ul>
 </nav>
-<div class="single-column-header-container" id="pageHead"
-     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
-    <a href="http://localhost:1313/blog/">
-        <div class="single-column-header-title">Wearry&#39;s Blog</div>
-        
-        <div class="single-column-header-subtitle">长恨此身非我有</div>
-        
+  </aside>
+  
 
-    </a>
-</div>
+  
 
-            <div id="content">
-                <div id="streamContainer" class="stream-container">
-
-    <div class="post-list-container post-list-container-shadow">
-        <div class="post">
-            
-            
-            
-
-            <div class="post-head-wrapper-text-only"
-                
-            >
-                <div class="post-title">
-                    拓展埃氏筛法小结
-                    
-                    <div class="post-subtitle">
-                        学完洲阁筛之后忘得差不多了, 不过现在已经可以将洲阁筛扔进垃圾桶了
-                    </div>
-                    
-                    <div class="post-meta">
-                        
-                        <time itemprop="datePublished">
-                            2018-08-21 19:42
-                        </time>
-                        
-
-                        
-
-                        
-                            <i class="material-icons" style="">label</i>
-                            
-                                <a href="/tags/%E8%B6%A3%E9%A2%98">趣题</a>
-                                &nbsp;
-                            
-                        
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="post-body-wrapper">
-                
-                <div class="post-body" v-pre>
-                
-                    <h2 id="description">Description</h2>
+  <div class="single-content">
+    <h2 id="description">Description</h2>
 <p>求:</p>
 <p>$$h(n) = \sum_{i=1}^{n} f(i)$$</p>
 <p>其中 \(f\) 是定义在正整数集下的积性函数, 满足 \(f(p^c)\) 能够快速计算.</p>
@@ -337,296 +148,132 @@ G(n, i) = G(n, i+1) + \sum_{c=0}^{\substack{p_i^{c+1} \le n}} f(p_i^{c+1}) + f(p
 $$</p>
 <p>复杂度约为 \(O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)\)</p>
 <h2 id="code">Code</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> M <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>ll n;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#66d9ef">int</span> m;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>uint val[M <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>];
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#66d9ef">int</span> prime[M <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>], pcnt;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>uint s[M <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>], S[M <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>];
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>uint f[M <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>], F[M <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>];
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#66d9ef">inline</span> uint <span style="color:#a6e22e">gets</span>(ll x) { <span style="color:#66d9ef">return</span> x <span style="color:#f92672">&lt;=</span> m <span style="color:#f92672">?</span> s[x] <span style="color:#f92672">:</span> S[n <span style="color:#f92672">/</span> x]; }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#66d9ef">inline</span> uint <span style="color:#a6e22e">getf</span>(ll x) { <span style="color:#66d9ef">return</span> x <span style="color:#f92672">&lt;=</span> m <span style="color:#f92672">?</span> f[x] <span style="color:#f92672">:</span> F[n <span style="color:#f92672">/</span> x]; }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">my_sqrt</span>(ll x) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  <span style="color:#66d9ef">int</span> r <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1ll</span> <span style="color:#f92672">*</span> (r <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> (r <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&lt;=</span> x) <span style="color:#f92672">++</span> r;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>  <span style="color:#66d9ef">return</span> r;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>}
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span>(ll _n) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>  m <span style="color:#f92672">=</span> my_sqrt(n <span style="color:#f92672">=</span> _n);
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; <span style="color:#f92672">++</span>i) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    val[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">81</span> <span style="color:#f92672">*</span> i <span style="color:#f92672">*</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">27</span> <span style="color:#f92672">*</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">9</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    s[i] <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    S[i] <span style="color:#f92672">=</span> (n <span style="color:#f92672">/</span> i) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>  }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; p <span style="color:#f92672">&lt;=</span> m; <span style="color:#f92672">++</span>p) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    <span style="color:#66d9ef">if</span>(s[p] <span style="color:#f92672">==</span> s[p<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#66d9ef">continue</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    prime[pcnt <span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> p;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    <span style="color:#66d9ef">const</span> uint _s <span style="color:#f92672">=</span> s[p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    <span style="color:#66d9ef">const</span> ll q <span style="color:#f92672">=</span> <span style="color:#ae81ff">1ll</span> <span style="color:#f92672">*</span> p <span style="color:#f92672">*</span> p, lim <span style="color:#f92672">=</span> min((ll) m, n <span style="color:#f92672">/</span> q), x <span style="color:#f92672">=</span> m <span style="color:#f92672">/</span> p, y <span style="color:#f92672">=</span> n <span style="color:#f92672">/</span> p;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> x; <span style="color:#f92672">++</span>i) S[i] <span style="color:#f92672">-=</span> S[i <span style="color:#f92672">*</span> p] <span style="color:#f92672">-</span> _s;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> lim; <span style="color:#f92672">++</span>i) S[i] <span style="color:#f92672">-=</span> s[y <span style="color:#f92672">/</span> i] <span style="color:#f92672">-</span> _s;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> m; i <span style="color:#f92672">&gt;=</span> q; <span style="color:#f92672">--</span>i) s[i] <span style="color:#f92672">-=</span> s[i <span style="color:#f92672">/</span> p] <span style="color:#f92672">-</span> _s;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>  }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; <span style="color:#f92672">++</span>i) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>    f[i] <span style="color:#f92672">=</span> s[i] <span style="color:#f92672">*</span> <span style="color:#ae81ff">63</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>    F[i] <span style="color:#f92672">=</span> S[i] <span style="color:#f92672">*</span> <span style="color:#ae81ff">63</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>  }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> e <span style="color:#f92672">=</span> pcnt; e <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span>; <span style="color:#f92672">--</span>e) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>    <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> prime[e<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>    <span style="color:#66d9ef">const</span> ll q <span style="color:#f92672">=</span> <span style="color:#ae81ff">1ll</span> <span style="color:#f92672">*</span> p <span style="color:#f92672">*</span> p, lim <span style="color:#f92672">=</span> min((ll) m, n <span style="color:#f92672">/</span> q);
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> lim; <span style="color:#f92672">++</span>i) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>      ll cur <span style="color:#f92672">=</span> n <span style="color:#f92672">/</span> i;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>      <span style="color:#66d9ef">for</span>(ll t <span style="color:#f92672">=</span> p, c <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; t <span style="color:#f92672">*</span> p <span style="color:#f92672">&lt;=</span> cur; t <span style="color:#f92672">*=</span> p, <span style="color:#f92672">++</span> c) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>        F[i] <span style="color:#f92672">+=</span> (getf(cur <span style="color:#f92672">/</span> t) <span style="color:#f92672">-</span> e <span style="color:#f92672">*</span> <span style="color:#ae81ff">63</span>) <span style="color:#f92672">*</span> val[c] <span style="color:#f92672">+</span> val[c <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>];
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>      }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>    }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> m; i <span style="color:#f92672">&gt;=</span> q; <span style="color:#f92672">--</span>i) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>      <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> i;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span>      <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> p, c <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; t <span style="color:#f92672">&lt;=</span> cur <span style="color:#f92672">/</span> p; t <span style="color:#f92672">*=</span> p, <span style="color:#f92672">++</span> c) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span><span>        f[i] <span style="color:#f92672">+=</span> (getf(cur <span style="color:#f92672">/</span> t) <span style="color:#f92672">-</span> e <span style="color:#f92672">*</span> <span style="color:#ae81ff">63</span>) <span style="color:#f92672">*</span> val[c] <span style="color:#f92672">+</span> val[c <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>];
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span>      }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span><span>    }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span><span>  }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span><span>}
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span><span>}
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">const</span> <span style="font-weight:bold;text-decoration:underline">int</span> M = 100000;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ll n;
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">int</span> m;
+</span></span><span style="display:flex;"><span>uint val[M + 5];
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">int</span> prime[M + 5], pcnt;
+</span></span><span style="display:flex;"><span>uint s[M + 5], S[M + 5];
+</span></span><span style="display:flex;"><span>uint f[M + 5], F[M + 5];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">inline</span> uint <span style="color:#666;font-weight:bold;font-style:italic">gets</span>(ll x) { <span style="font-weight:bold;text-decoration:underline">return</span> x &lt;= m ? s[x] : S[n / x]; }
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">inline</span> uint <span style="color:#666;font-weight:bold;font-style:italic">getf</span>(ll x) { <span style="font-weight:bold;text-decoration:underline">return</span> x &lt;= m ? f[x] : F[n / x]; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">int</span> <span style="color:#666;font-weight:bold;font-style:italic">my_sqrt</span>(ll x) {
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">int</span> r = 1;
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">while</span>(1ll * (r + 1) * (r + 1) &lt;= x) ++ r;
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">return</span> r;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">void</span> <span style="color:#666;font-weight:bold;font-style:italic">init</span>(ll _n) {
+</span></span><span style="display:flex;"><span>  m = my_sqrt(n = _n);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> i = 1; i &lt;= m; ++i) {
+</span></span><span style="display:flex;"><span>    val[i] = 81 * i * i - 27 * i + 9;
+</span></span><span style="display:flex;"><span>    s[i] = i - 1;
+</span></span><span style="display:flex;"><span>    S[i] = (n / i) - 1;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> p = 2; p &lt;= m; ++p) {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span>(s[p] == s[p-1]) <span style="font-weight:bold;text-decoration:underline">continue</span>;
+</span></span><span style="display:flex;"><span>    prime[pcnt ++] = p;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">const</span> uint _s = s[p - 1];
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">const</span> ll q = 1ll * p * p, lim = min((ll) m, n / q), x = m / p, y = n / p;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> i = 1; i &lt;= x; ++i) S[i] -= S[i * p] - _s;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> i = x + 1; i &lt;= lim; ++i) S[i] -= s[y / i] - _s;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> i = m; i &gt;= q; --i) s[i] -= s[i / p] - _s;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> i = 1; i &lt;= m; ++i) {
+</span></span><span style="display:flex;"><span>    f[i] = s[i] * 63;
+</span></span><span style="display:flex;"><span>    F[i] = S[i] * 63;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> e = pcnt; e &gt;= 1; --e) {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">int</span> p = prime[e-1];
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">const</span> ll q = 1ll * p * p, lim = min((ll) m, n / q);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> i = 1; i &lt;= lim; ++i) {
+</span></span><span style="display:flex;"><span>      ll cur = n / i;
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold;text-decoration:underline">for</span>(ll t = p, c = 1; t * p &lt;= cur; t *= p, ++ c) {
+</span></span><span style="display:flex;"><span>        F[i] += (getf(cur / t) - e * 63) * val[c] + val[c + 1];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> i = m; i &gt;= q; --i) {
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold;text-decoration:underline">int</span> cur = i;
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold;text-decoration:underline">for</span>(<span style="font-weight:bold;text-decoration:underline">int</span> t = p, c = 1; t &lt;= cur / p; t *= p, ++ c) {
+</span></span><span style="display:flex;"><span>        f[i] += (getf(cur / t) - e * 63) * val[c] + val[c + 1];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
-                    
-                    <HR width="100%" id="EOF">
-		    <p style="color:#777;">Last modified on 2018-08-21</p>
-                    
-                </div>
-            </div>
-            
-            
-            <nav class="post-pagination">
-
-                
-                <a class="newer-posts" href="/blog/posts/problem-select/">
-			Next<br>互测题总结
-                </a>
-                
-                
-                
-                <a class="older-posts" href="/blog/posts/noi2018/">
-			Previous<br>记NOI2018
-                </a>
-                
-            </nav>
-            <div class="post-comment-wrapper">
-                
-
-
-<div id="gitalk-container"></div>
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-
-                    </div>
-            </div><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="http://localhost:1313/blog/">
-    
-        <div class="nav-title">
-            Wearry&#39;s Blog
-        </div>
-        
-        <div class="nav-subtitle">
-            长恨此身非我有
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/blog/posts">
-                Archive
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/blog/tags">
-                Tags
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/blog/about/">
-                About
-            </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	Wearry &gt;_ 2023
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    <div class="toc-wrapper">
-        
-
-        
-        <div class="toc">
-
-
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- CATALOG -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#description" class="nav-description">
-									Description
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#conversion" class="nav-conversion">
-									Conversion
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#code" class="nav-code">
-									Code
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
+  </div>
 
 </div>
-        
-    </div>
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
-            :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
-    </div>
-</div>
 
-<div id="single-column-footer">
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
 
-&copy;
-	
-	Wearry &gt;_ 2023
-	
-</div>
-            </div>
-    
-    <script src="/blog/js/journal.js"></script></body>
+    </main>
+  </div>
+
+  <footer>
+    <p>Powered by
+<a href="https://gohugo.io/">Hugo</a>
+and
+<a href="https://github.com/tomfran/typo">tomfran/typo</a>
+© Wearry >_ 2024 
+</p>
+
+<script id="gallery-script" src="/js/gallery.js"></script>
+
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
 </html>

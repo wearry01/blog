@@ -6,6 +6,7 @@ tags:
     - Number Theory
     - Induction
 draft: true
+
 ---
 
 Some notes of 🔒 cryptography lessons 
@@ -139,7 +140,7 @@ To illustrate **computational indistinguishability**, the definition is formulat
 > **Experiment** $b$:
 >
 > - The Challenger computes $r \in \mathcal{R}$ as follows:
->     ![PRG-ADV](/img/PRG-ADV.png)
+>     ![PRG-ADV](/images/PRG-ADV.png)
 > 
 >     - if $b = 0$, $s \xleftarrow{R} \mathcal{S}, r \leftarrow G(s)$
 >     - if $b = 1$, $r \xleftarrow{R} \mathcal{R}$
