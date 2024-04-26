@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+{{ $theme := "auto"}}
+
+{{ with .Param "theme" }}
+{{ $theme = .}}
+{{ end }}
+
+<body class="{{ $theme }}">
+
+  <div class="content">
+    <header>
+      {{ partial "header.html" . }}
+    </header>
+
+    <main class="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+
+  <footer>
+    {{ partialCached "footer.html" . }}
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
+</html>
