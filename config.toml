@@ -3,7 +3,7 @@ DefaultContentLanguage = "en" # Theme's display language, supports: en, fr, zh, 
 languageCode = "en-us"
 title = "Wearry's Blog"
 copyright = "Wearry >_ 2023"
-theme = "Typo"
+theme = "typo"
 disableKinds = ['taxonomy']
 # googleAnalytics = "UA-123-45"
 
