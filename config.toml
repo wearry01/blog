@@ -21,7 +21,7 @@ theme = "diary"
 
 [params]
 subtitle = "长恨此身非我有"
-enableGitalk = false
+enableGitalk = true
 enableGiscus = false
 enableAutoDarkMode=true
 # Microsoft Clarity (https://clarity.microsoft.com/) is a free user behavior recording and analytics tool
@@ -64,14 +64,14 @@ theme="github-light"
     data_lang="en"
     crossorigin="anonymous"
 
+#[[menu.main]]
+#url = "/categories"
+#name = "Categories"
+#weight = 2
 [[menu.main]]
-url = "/categories"
-name = "Categories"
-weight = 2
-# [[menu.main]]
-# url = "/tags"
-# name = "Tags"
-# weight = 3
+url = "/tags"
+name = "Tags"
+weight = 3
 [[menu.main]]
 url = "/posts"
 name = "Archive"

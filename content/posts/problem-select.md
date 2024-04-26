@@ -2,7 +2,7 @@
 title: 互测题总结
 date: 2018-10-02 10:58:09
 description: 好多不会的题...
-categories:
+tags:
     - 趣题
 ---
 

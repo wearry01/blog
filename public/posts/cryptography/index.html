@@ -93,6 +93,23 @@ Complete other contents
 
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/blog/vendor/js/md5.min.js"></script><script>
+  var gitalk = new Gitalk({
+  clientID: 'b17a9177804d710e1313',
+  clientSecret: '1b4d3b7cc2317b59e42d52241d7ac01693badd89',
+  repo: 'wearry01.github.io',
+  owner: 'wearry01',
+  admin: ['wearry01'],
+  id: md5(location.pathname),
+  distractionFreeMode: 'false'
+  });
+  window.onload = function () {
+        gitalk.render('gitalk-container')
+  }
+</script>
+
 
 
 
@@ -141,8 +158,8 @@ Complete other contents
                 
                 
                 
-                <a class="a-block drawer-menu-item false" href="/blog/categories">
-                    Categories
+                <a class="a-block drawer-menu-item false" href="/blog/tags">
+                    Tags
                 </a>
                 
             
@@ -1224,6 +1241,8 @@ $$</p>
                 
 
 
+<div id="gitalk-container"></div>
+
 
 
 
@@ -1274,8 +1293,8 @@ $$</p>
             
             
             
-            <a class="a-block nav-link-item false" href="/blog/categories">
-                Categories
+            <a class="a-block nav-link-item false" href="/blog/tags">
+                Tags
             </a>
             
         

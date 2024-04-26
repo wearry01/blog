@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fiction on Wearry&#39;s Blog</title>
+    <link>http://localhost:1313/blog/tags/fiction/</link>
+    <description>Recent content in Fiction on Wearry&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Wearry &gt;_ 2023</copyright>
+    <lastBuildDate>Fri, 26 Apr 2024 16:48:45 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/fiction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>倒带</title>
+      <link>http://localhost:1313/blog/posts/rewind/</link>
+      <pubDate>Fri, 26 Apr 2024 16:48:45 +0800</pubDate>
+      <guid>http://localhost:1313/blog/posts/rewind/</guid>
+      <description>I 一切有为法，如梦幻泡影，如露亦如电，应作如是观。&#xA;&amp;mdash;&amp;mdash;《金刚经》&#xA;II III IV V </description>
+    </item>
+  </channel>
+</rss>

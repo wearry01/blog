@@ -2,7 +2,7 @@
 title: 趣味数学题
 date: 2020-02-10 22:04:22
 description: 收集一些有意思的题目
-categories:
+tags:
     - 趣题
 ---
 

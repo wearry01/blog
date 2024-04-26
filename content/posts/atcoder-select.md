@@ -1,7 +1,7 @@
 ---
 title: Atcoder 选做
 date: 2017-06-30 21:33:45
-categories:
+tags:
     - 趣题
 description:
     "总结一下比赛中遇到的好题, 然后瞎做了几场 AGC 的题目练习, 感觉比较有意思"

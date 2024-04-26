@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Wearry &gt;_ 2023</copyright>
-    <lastBuildDate>Fri, 26 Apr 2024 16:29:46 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2024 16:52:42 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>倒带</title>
+      <link>http://localhost:1313/blog/posts/rewind/</link>
+      <pubDate>Fri, 26 Apr 2024 16:48:45 +0800</pubDate>
+      <guid>http://localhost:1313/blog/posts/rewind/</guid>
+      <description>I 一切有为法，如梦幻泡影，如露亦如电，应作如是观。&#xA;&amp;mdash;&amp;mdash;《金刚经》&#xA;II III IV V </description>
+    </item>
     <item>
       <title>落幕回响</title>
       <link>http://localhost:1313/blog/posts/echo/</link>

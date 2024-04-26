@@ -2,7 +2,7 @@
 title: 平面树计数
 date: 2017-12-01 11:03:04
 description: 不常见的经典问题, 顺便总结一下Burnside引理吧
-categories: 
+tags: 
     - 趣题
 ---
 

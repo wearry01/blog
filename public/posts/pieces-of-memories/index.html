@@ -25,6 +25,7 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2020-09-13T10:03:09+00:00">
     <meta property="article:modified_time" content="2020-09-13T10:03:09+00:00">
+    <meta property="article:tag" content="随笔">
 
 
 
@@ -75,6 +76,23 @@
 
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/blog/vendor/js/md5.min.js"></script><script>
+  var gitalk = new Gitalk({
+  clientID: 'b17a9177804d710e1313',
+  clientSecret: '1b4d3b7cc2317b59e42d52241d7ac01693badd89',
+  repo: 'wearry01.github.io',
+  owner: 'wearry01',
+  admin: ['wearry01'],
+  id: md5(location.pathname),
+  distractionFreeMode: 'false'
+  });
+  window.onload = function () {
+        gitalk.render('gitalk-container')
+  }
+</script>
+
 
 
 
@@ -123,8 +141,8 @@
                 
                 
                 
-                <a class="a-block drawer-menu-item false" href="/blog/categories">
-                    Categories
+                <a class="a-block drawer-menu-item false" href="/blog/tags">
+                    Tags
                 </a>
                 
             
@@ -317,12 +335,13 @@
                         
 
                         
-                          
-                            <i class="material-icons" style="">folder</i>
-                              <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a> &nbsp;
-                          
-                        
 
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/%E9%9A%8F%E7%AC%94">随笔</a>
+                                &nbsp;
+                            
                         
                         
                     </div>
@@ -406,6 +425,8 @@
                 
 
 
+<div id="gitalk-container"></div>
+
 
 
 
@@ -456,8 +477,8 @@
             
             
             
-            <a class="a-block nav-link-item false" href="/blog/categories">
-                Categories
+            <a class="a-block nav-link-item false" href="/blog/tags">
+                Tags
             </a>
             
         

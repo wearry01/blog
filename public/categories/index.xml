@@ -7,28 +7,6 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Wearry &gt;_ 2023</copyright>
-    <lastBuildDate>Fri, 26 Apr 2024 16:29:46 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/blog/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>随笔</title>
-      <link>http://localhost:1313/blog/categories/%E9%9A%8F%E7%AC%94/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/categories/%E9%9A%8F%E7%AC%94/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>趣题</title>
-      <link>http://localhost:1313/blog/categories/%E8%B6%A3%E9%A2%98/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/categories/%E8%B6%A3%E9%A2%98/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>复盘</title>
-      <link>http://localhost:1313/blog/categories/%E5%A4%8D%E7%9B%98/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/categories/%E5%A4%8D%E7%9B%98/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
