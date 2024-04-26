@@ -5,7 +5,7 @@ title = "Wearry's Blog"
 copyright = "Wearry >_ 2023"
 theme = "typo"
 disableKinds = ['taxonomy']
-canonifyURL = true
+canonifyURLs = true
 # googleAnalytics = "UA-123-45"
 
 [params]
