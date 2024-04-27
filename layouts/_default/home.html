@@ -6,13 +6,13 @@
 {{ if .Site.Params.homeIntro }}
 
 <div class="intro">
-    {{ if .Site.Params.homeIntroTitle }}
-    <h1>{{ .Site.Params.homeIntroTitle }}</h1>
-    {{ end }}
+  {{ if .Site.Params.homeIntroTitle }}
+  <h1>{{ .Site.Params.homeIntroTitle }}</h1>
+  {{ end }}
 
-    {{ if .Site.Params.homeIntroContent }}
-    <p>{{ .Site.Params.homeIntroContent | markdownify }}</p>
-    {{ end }}
+  {{ if .Site.Params.homeIntroContent }}
+  <p>{{ .Site.Params.homeIntroContent | markdownify }}</p>
+  {{ end }}
 </div>
 
 {{ end }}
@@ -21,12 +21,12 @@
 
 {{ with site.Params.social }}
 <div class="social-icons">
-    {{- range . }}
-    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
-        title="{{ (.title | default .name) | title }}">
-        {{ partial "svg.html" . }}
-    </a>
-    {{- end }}
+  {{- range . }}
+  <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
+                                                          title="{{ (.title | default .name) | title }}">
+    {{ partial "svg.html" . }}
+  </a>
+  {{- end }}
 </div>
 {{ end }}
 
@@ -61,10 +61,8 @@
 </span>
 </p>
 
-<center>
-    <figure>
-        <img class="gallery" id="gallery-image" height=450px>
-    </figure>
-</center>
+<figure>
+  <img class="gallery" id="gallery-image" style="max-height:550px;">
+</figure>
 
 {{ end }}
