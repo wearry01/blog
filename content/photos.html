@@ -1,28 +1,44 @@
 
 <div id="mygallery" >
-    <a href="/images/gallery/1.jpg">
+  <a href="/images/gallery/1.jpg">
     <img src="/images/gallery/1.jpg"/>
-    </a>
-    <a href="/images/gallery/2.jpg">
+  </a>
+  <a href="/images/gallery/2.jpg">
     <img src="/images/gallery/2.jpg"/>
-    </a>
-    <a href="/images/gallery/3.jpg">
+  </a>
+  <a href="/images/gallery/3.jpg">
     <img src="/images/gallery/3.jpg"/>
-    </a>
-    <a href="/images/gallery/4.jpg">
+  </a>
+  <a href="/images/gallery/4.jpg">
     <img src="/images/gallery/4.jpg"/>
-    </a>
-    <a href="/images/gallery/5.jpg">
+  </a>
+  <a href="/images/gallery/5.jpg">
     <img src="/images/gallery/5.jpg"/>
-    </a>
-    <!-- other images... -->
+  </a>
+  <!-- other images... -->
 </div>
 
 <script>
+  var __cur = 6;
+  var __tot = 12;
+
   $("#mygallery").justifiedGallery({
     margin: 3,
+    rel : 'gallery1',
     rowHeight: 200,
     captions: false,
     randomize: true
+  });
+
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      for (var i = __cur; i < __cur + 5 && i <= __tot; i++) {
+        $('#mygallery').append('<a href="/images/gallery/' + i + '.jpg">' +
+          '<img src="/images/gallery/' + i + '.jpg"/>' + 
+          '</a>');
+      }
+      __cur = __cur + 5;
+      $('#mygallery').justifiedGallery('norewind');
+    }
   });
 </script>
