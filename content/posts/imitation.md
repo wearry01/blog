@@ -1,7 +1,7 @@
 +++
 title = "不可区分、随机与零知识"
 author = ["Wearry"]
-lastmod = 2024-05-12T21:50:16+08:00
+lastmod = 2024-05-12T23:31:03+08:00
 draft = true
 +++
 
@@ -12,7 +12,7 @@ draft = true
 阿兰·图灵 (Alan Turing) 在其影响深远的论文 _Computing Machinery and Intelligence_
 中探讨了 “机器能否思考” 这一问题，并给出了他的判断方法——即著名的 “图灵测试” (The Turing Test):
 
-{{< figure src="/ox-hugo/aHR0cDovL3AuYW5hbmFzLmNoYW94aW5nLmNvbS9zdGFyMy9vcmlnaW4vNzYwNzI1NDI1MWY4ZDFjOWIwMDJiODQ1N2M2Zjc2NmIuanBn.png" >}}
+{{< figure src="~/Downloads/aHR0cDovL3AuYW5hbmFzLmNoYW94aW5nLmNvbS9zdGFyMy9vcmlnaW4vNzYwNzI1NDI1MWY4ZDFjOWIwMDJiODQ1N2M2Zjc2NmIuanBn.png" >}}
 
 > 如果人类无法区分屏幕后与其对话的是另一个人类个体还是某种计算机器，则称这台它具有机器智能。
 
@@ -55,8 +55,8 @@ Widgerson 其中一系列具有重大影响力的工作——
 另一方面，对于某些问题，概率算法似乎可以指向确定性算法。
 20 世纪 80 年代初，Wigderson 与加州大学伯克利分校的 Richard Karp 合作，
 他和 Karp 发现了一种针对某个难题的随机算法，后来他们能够将其去随机化，
-从而有效地揭示了它的确定性算法。
-大约在同一时间，其他研究人员展示了密码学问题中的计算难度假设如何能够实现一般的去随机化。
+从而有效地揭示了它的确定性算法。大约在同一时间，
+其他研究人员展示了密码学问题中的计算难度假设如何能够实现一般的去随机化。
 
 
 ## 不包含知识的 “证明” {#不包含知识的-证明}
