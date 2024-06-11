@@ -33,7 +33,7 @@
   $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
       for (var i = __cur; i < __cur + 5 && i <= __tot; i++) {
-        $('#mygallery').append('<a href="/images/gallery/' + i + '.jpg">' +
+        $('#mygallery').append('<a href="/images/gallery/img_' + i + '.jpg">' +
           '<img src="/images/gallery/img_' + i + '.jpg"/>' + 
           '</a>');
       }
