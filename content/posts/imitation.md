@@ -1,8 +1,10 @@
 +++
 title = "与不可区分的随机共舞"
 author = ["Wearry"]
-lastmod = 2024-05-13T17:28:57+08:00
-draft = true
+date = 2024-06-11T22:52:00+08:00
+lastmod = 2024-06-11T22:59:14+08:00
+tags = ["TCS"]
+draft = false
 +++
 
 ## 模仿游戏 {#模仿游戏}
@@ -12,7 +14,13 @@ draft = true
 Alan Turing 在其影响深远的论文 _Computing Machinery and Intelligence_
 中探讨了 “机器能否思考” 这一问题，并给出了他的判断方法——即著名的 “图灵测试” (The Turing Test):
 
-{{< figure src="/ox-hugo/turing test.png" >}}
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+
+<div class="org-center">
+
+{{< figure src="/images/turing test.jpg" >}}
+
+</div>
 
 > 如果人类无法区分屏幕后与其对话的是另一个人类个体还是某种计算机器，则称这台它具有机器智能。
 
@@ -24,13 +32,11 @@ Alan Turing 在其影响深远的论文 _Computing Machinery and Intelligence_
 将在其中做出突出贡献，并以此让自己的名字和图灵紧密联系在一起。
 
 
-## Avi Widgerson 简介 {#avi-widgerson-简介}
+## Avi Wigderson 简介 {#avi-wigderson-简介}
 
-1956 年，Avi Widgerson 出生在以色列海法。
+1956 年，Avi Wigderson 出生在以色列海法。
 
-{{< figure src="/ox-hugo/avi.jpg" >}}
-
-1977 年，Widgerson 进入以色列理工学院学习并于 1980 年毕业，之后进入普林斯顿大学攻读研究生，
+1977 年，Wigderson 进入以色列理工学院学习并于 1980 年毕业，之后进入普林斯顿大学攻读研究生，
 1983 年在导师 Richard Lipton 指导下完成题为 _Studies in Combinatorial Complexity_ 的博士论文，
 并获得了计算机科学博士学位。
 1999 年，Wigderson 加入了普林斯顿高等研究院 (IAS)，并在那里工作至今。
@@ -38,7 +44,7 @@ Alan Turing 在其影响深远的论文 _Computing Machinery and Intelligence_
 他开创了该研究院在理论计算机科学领域的黄金时代。
 
 因 **理论计算机科学与离散数学方面的奠基性贡献** ，
-Widgerson 于 2021 年与布达佩斯罗兰大学的数学家 László Lovász 共享了阿贝尔奖。
+Wigderson 于 2021 年与布达佩斯罗兰大学的数学家 László Lovász 共享了阿贝尔奖。
 并于 2024 年 4 月 10 日，被 ACM 授予 2023 年图灵奖，
 以表彰他对 **计算理论的基础性贡献，包括塑造对计算中随机性作用的理解** 。
 由此，他也成为了唯一一个同时摘得数学领域阿贝尔奖和计算机科学领域图灵奖的学者。
@@ -46,8 +52,8 @@ Widgerson 于 2021 年与布达佩斯罗兰大学的数学家 László Lovász �
 
 ## 不可区分的随机性 {#不可区分的随机性}
 
-Widgerson 其中一系列具有重大影响力的工作——
-也是 ACM 官方在授予 Widgerson 图灵奖的通告中提到的代表性工作——是关于计算中随机性的理解。
+Wigderson 具有重大影响力的一系列工作——
+也是获授图灵奖的代表性工作——关于计算中随机性的理解。
 
 20 世纪 70 年代末，计算机科学家逐渐意识到，对于许多难题，
 允许计算机通过抛掷硬币来使用随机性可以得到更好的算法。
@@ -60,25 +66,24 @@ Widgerson 其中一系列具有重大影响力的工作——
 大约在同一时间，其他研究人员展示了密码学问题中的计算难度假设如何能够实现一般的去随机化。
 
 上述两个事实似乎为 **随机性在计算中有效** 与 **随机性在计算中无关紧要** 两个相对的方向分别提供了证据，
-也促使 Widgerson 开始思考随机性在计算中是否真正必要。
+也促使 Wigderson 开始思考随机性在计算中是否真正必要。
 在与 Noam Nisan 合作的文章 _Hardness vs. Randomness_&nbsp;[^fn:3]中，
 他们注意到可以基于 _计算困难_ 的问题——即对某类计算机器来说不存在确定性高效算法的问题，
-构造针对这类计算机器的伪随机数生成器 (Pseudo Random Generator)，
+构造针对这类计算机器的伪随机数生成器 (Pseudo Random Generator, PRG)，
 并利用这样的 PRG 消除计算过程中对随机性的依赖。
 
 > 伪随机数生成器是实际计算机器中常用的引入 “随机” 的方式，能从长度较短的随机种子生成更长的伪随机串。
 > 在理论计算的语境下，通常要求其输出与相同长度的真随机串无法在某些计算限制下有效区分。
 
-Widgerson 敏锐地观察到，
+Wigderson 敏锐地观察到，
 计算困难问题某种意义上来说天然地提供了这样的不可区分的条件——无法高效地区分不同计算结果对应的输入，
 而不可区分性恰恰是设计 PRG 的关键！进一步地，通过高效遍历 PRG 在所有短随机种子上生成的伪随机串，
-Widgerson 与 Nisan 能够从一类计算机器中的随机算法得到效率相近的确定性算法。后续的工作中，
-Widgerson 与其他合作者进一步基于另一些与线路复杂性有关的假设得到有关概率多项式算法的去随机化结果&nbsp;[^fn:4] <sup>, </sup>[^fn:5]。
+Wigderson 与 Nisan 能够从一类计算机器中的随机算法得到效率相近的确定性算法。后续的工作中，
+Wigderson 与其他合作者进一步基于另一些与线路复杂性有关的假设得到有关概率多项式算法的去随机化结果&nbsp;[^fn:4] <sup>, </sup>[^fn:5]。
 
-以天气预测这一问题为例，Widgerson 的工作直观上揭示了这样的关系，如果预测天气是计算困难的问题，
-则今天的我们无法有效的区分明天是雨天或者是晴天这两种不同的情形。
-这样的不可区分性进一步使得我们无法区分投掷大量真实硬币的结果和投掷少量硬币并以某种方式生成的随机天气预测问题的答案，
-于是掷硬币对计算带来的帮助被高估了——只需要掷更少硬币甚至完全舍弃硬币也能得到与之难以区分的结果。
+从信息论的观点来看，不可区分和随机，实际上都在描述信息量不足这同一件事情。
+而 Wigderson 的研究则为我们在计算理论的视角揭示了这两者之间的紧密关联，
+计算困难性最终也将我们引向了计算意义下的随机性。
 
 
 ## 结语 {#结语}
@@ -88,9 +93,9 @@ Widgerson 与其他合作者进一步基于另一些与线路复杂性有关的�
 还是设计加密算法使加密的信息和不包含有意义信息的随机串之间不可区分，
 这样的哲学都在背后指导着计算机科学的发展进步。
 
-Widgerson 在不可区分与随机性上的深刻见解，在帮助我们更好地认识计算与随机之间关系的同时，
-也给了我们启发——计算困难、不可区分似乎是上帝为我们关上了一道厚重的门，但从另一个角度来说，
-这扇门本身或许也另有用处，比如适合用来建一个安全的堡垒！
+Wigderson 在不可区分与随机性上的深刻见解，在帮助我们更好地认识计算与随机之间关系的同时，
+也给了我们启发：当发现两片看起来一模一样的叶子时，在沮丧于它们的难以区分之前，
+也许值得高兴的一点是——我们找到了与前一片叶子能够胜任的工作相同的又一片叶子！
 
 [^fn:1]: Biever, Celeste.
     _ChatGPT broke the Turing test — the race is on for new ways to assess AI_
@@ -100,10 +105,10 @@ Widgerson 在不可区分与随机性上的深刻见解，在帮助我们更好�
     SIAM Journal on Computing. 6 (1): 84–85 (1977).
 [^fn:3]: Noam Nisan, Avi Wigderson.
     _Hardness vs Randomness._
-    J. Comput. Syst. Sci. 49(2): 149-167 (1994)
+    Journal of Computer and System Sciences. 49(2): 149-167 (1994).
 [^fn:4]: Babai, L., Fortnow, L., Nisan, N. et al.
     _BPP has subexponential time simulations unless EXPTIME has publishable proofs._
-    Comput Complexity 3, 307–318 (1993).
+    Computational Complexity 3, 307–318 (1993).
 [^fn:5]: Russell Impagliazzo, Avi Wigderson.
     _P = BPP if E Requires Exponential Circuits: Derandomizing the XOR Lemma._
     STOC 1997: 220-229
