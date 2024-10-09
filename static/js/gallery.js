@@ -1,4 +1,4 @@
-const num_imgs = 32;
+const num_imgs = 28;
 var order = [...Array(num_imgs).keys()];
 var cur = num_imgs;
 

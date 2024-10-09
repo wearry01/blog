@@ -13,7 +13,7 @@
   }
 
   var __cur = 6;
-  var __tot = 32;
+  var __tot = 28;
   var __step = 5;
 
   for (var i = 1; i < __cur; i++) {
@@ -32,11 +32,12 @@
 
   $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
-      for (var i = __cur; i < __cur + __step && i <= __tot; i++, __cur += __step) {
+      for (var i = __cur; i < __cur + __step && i <= __tot; i++) {
         $('#mygallery').append('<a href="/images/gallery/img_' + padding(i) + '.jpg">' +
           '<img src="/images/gallery/img_' + padding(i) + '.jpg"/>' + 
           '</a>');
       }
+      __cur += __step;
       $('#mygallery').justifiedGallery('norewind');
     }
   });
