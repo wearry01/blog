@@ -1,4 +1,5 @@
 .dir-locals.el
 public/
+themes/
 .DS_Store
 

@@ -1,4 +1,4 @@
-const num_imgs = 22;
+const num_imgs = 32;
 var order = [...Array(num_imgs).keys()];
 var cur = num_imgs;
 
@@ -13,6 +13,14 @@ function shuffleArray(array) {
   }
 }
 
+function padding(n) {
+  n = n + "";
+  while (n.length < 5) {
+    n = "0" + n;
+  }
+  return n;
+}
+
 function resampleGallery() {
   if (cur >= num_imgs) {
     shuffleArray(order);
@@ -20,8 +28,8 @@ function resampleGallery() {
   }
   var idx = 1 + order[cur];
   var img = document.getElementById("gallery-image");
-  img.src = "images/gallery/img_" + idx + ".jpg";
-  img.alt = "Gallery image " + idx;
+  img.src = "images/gallery/img_" + padding(idx) + ".jpg";
+  img.alt = "Gallery image " + padding(idx);
   cur += 1;
 }
 

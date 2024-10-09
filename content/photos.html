@@ -1,26 +1,26 @@
 
 <div id="mygallery" >
-  <a href="/images/gallery/img_1.jpg">
-    <img src="/images/gallery/img_1.jpg"/>
-  </a>
-  <a href="/images/gallery/img_2.jpg">
-    <img src="/images/gallery/img_2.jpg"/>
-  </a>
-  <a href="/images/gallery/img_3.jpg">
-    <img src="/images/gallery/img_3.jpg"/>
-  </a>
-  <a href="/images/gallery/img_4.jpg">
-    <img src="/images/gallery/img_4.jpg"/>
-  </a>
-  <a href="/images/gallery/img_5.jpg">
-    <img src="/images/gallery/img_5.jpg"/>
-  </a>
   <!-- other images... -->
 </div>
 
 <script>
+  function padding(n) {
+    n = n + "";
+    while (n.length < 5) {
+      n = "0" + n;
+    }
+    return n;
+  }
+
   var __cur = 6;
-  var __tot = 22;
+  var __tot = 32;
+  var __step = 5;
+
+  for (var i = 1; i < __cur; i++) {
+    $('#mygallery').append('<a href="/images/gallery/img_' + padding(i) + '.jpg">' +
+      '<img src="/images/gallery/img_' + padding(i) + '.jpg"/>' + 
+      '</a>');
+  }
 
   $("#mygallery").justifiedGallery({
     margin: 3,
@@ -32,12 +32,11 @@
 
   $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
-      for (var i = __cur; i < __cur + 5 && i <= __tot; i++) {
-        $('#mygallery').append('<a href="/images/gallery/img_' + i + '.jpg">' +
-          '<img src="/images/gallery/img_' + i + '.jpg"/>' + 
+      for (var i = __cur; i < __cur + __step && i <= __tot; i++, __cur += __step) {
+        $('#mygallery').append('<a href="/images/gallery/img_' + padding(i) + '.jpg">' +
+          '<img src="/images/gallery/img_' + padding(i) + '.jpg"/>' + 
           '</a>');
       }
-      __cur = __cur + 5;
       $('#mygallery').justifiedGallery('norewind');
     }
   });
