@@ -65,4 +65,4 @@ $$ g(x) = (1 - 4x) ^ {-\frac{1}{2}} $$
 
 于是总的生成函数可以写成:
 
-$$ p(n) = \frac{1}{2n} \left( [\mathrm{n \, is \, odd}]\binom{n}{\lfloor\frac{n}{2}\rfloor} - \binom{2n}{n-1} + \sum_{d|n}{\varphi(n/d)\binom {2d}{d}} \right)$$
+$$ p(n) = \frac{1}{2n} \left( [n\text{ is odd}]\binom{n}{\lfloor\frac{n}{2}\rfloor} - \binom{2n}{n-1} + \sum_{d\mid n}{\varphi(n/d)\binom {2d}{d}} \right)$$

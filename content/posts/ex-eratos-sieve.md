@@ -24,7 +24,7 @@ $$
 S_k(n, i) = 
 \begin{cases}
 S_k(n, i-1) & n < p_i^2 \\\\
-S_k(n, i-1) - p_i^k \times \left(S_k(\left \lfloor \frac{n}{p_i} \right \rfloor, i - 1) - S_k(p_{i-1}, i - 1)\right) & \mathrm{otherwise} 
+S_k(n, i-1) - p_i^k \times \left(S_k\left(\left \lfloor n/p_i \right \rfloor, i - 1\right) - S_k(p_{i-1}, i - 1)\right) & \mathrm{otherwise} 
 \end{cases}
 $$
 
@@ -33,10 +33,10 @@ $$
 类似地, 定义 \\(G(n, i)\\) 表示小于等于 \\(n\\) 的数中仅由第 \\(i\\) 个以后的质数构成的数与**所有质数** \\(x\\) 的 \\(f(x)\\) 之和, 转移的方式类似:
 
 $$
-G(n, i) = G(n, i+1) + \sum_{c=0}^{\substack{p_i^{c+1} \le n}} f(p_i^{c+1}) + f(p_i^c) \times \left(G(\left \lfloor \frac{n}{p_i^c} \right \rfloor, i+1) - G(p_i, i+1)\right)
+G(n, i) = G(n, i+1) + \sum_{c=0}^{\substack{p_i^{c+1} \le n}} f(p_i^{c+1}) + f(p_i^c) \times \left(G\left(\left \lfloor n/p_i^c \right \rfloor, i+1\right) - G(p_i, i+1)\right)
 $$
 
-复杂度约为 \\(O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)\\)
+复杂度约为 \\(O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)\\).
 
 ## Code
 
@@ -103,6 +103,5 @@ void init(ll _n) {
       }
     }
   }
-}
 }
 ```

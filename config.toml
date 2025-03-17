@@ -2,17 +2,19 @@ baseURL = "https://wearry01.github.io"
 DefaultContentLanguage = "en" # Theme's display language, supports: en, fr, zh, zh-hant
 languageCode = "en-us"
 title = "Wearry's Blog"
-copyright = "Wearry >_ 2023"
+footerContent = "Wearry >_ 2025"
 theme = "typo"
 # googleAnalytics = "UA-123-45"
 
 [params]
 # Math mode
-math = true
 theme = "auto"
-
-toc = true
 subtitle = "长恨此身非我有"
+math = true
+toc = true
+hideBackToTop = false
+colorPalette = 'base16-default'
+hidePagination = true
 
 # Collection to display on home page: 
 # in this case we would display content/posts pages
@@ -23,6 +25,10 @@ homeCollection = 'posts'
 paginationSize = 15
 
 # Social icons
+
+# Breadcrumbs
+[params.breadcrumbs]
+enabled = false
 
 # Main menu pages
 [[params.menu]]

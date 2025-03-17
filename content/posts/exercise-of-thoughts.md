@@ -93,8 +93,8 @@ For any prime \\(p\\)，those integers won't be **relatively prime** if they are
 
 $$
 \begin{aligned}
-P &= \prod_{p\, \mathrm{is\ prime}} \left(1 - \frac{1}{p^2}\right) \\
-&= \prod_{p\, \mathrm{is\ prime}} \cfrac{1}{\displaystyle \sum_{i=0}^{\infty} \left(\cfrac{1}{p^2}\right)^i} \\
+P &= \prod_{p \text{ is prime}} \left(1 - \frac{1}{p^2}\right) \\
+&= \prod_{p \text{ is prime}} \cfrac{1}{\displaystyle \sum_{i=0}^{\infty} \left(\cfrac{1}{p^2}\right)^i} \\
 &= \frac{1}{\displaystyle \sum_{i=1}^{\infty} \frac{1}{i^2}} \\
 &= \frac{6}{\pi^2}
 \end{aligned}
@@ -118,7 +118,7 @@ $$
 to prove \\(P \le \frac{1}{2}\\), we use the result in analysis that:
 
 > \\(\forall x \in \mathbb{R}, 1 + x \le \mathrm{e}^x\\)
-> ![](/images/exp.png) 
+> ![](/images/exp.png#small) 
 
 then:
 
