@@ -2,8 +2,8 @@
 title = "Indrew"
 author = ["Wearry"]
 date = 2024-04-29T18:12:00+08:00
-lastmod = 2025-06-26T23:45:59+08:00
-tags = ["Fiction"]
+lastmod = 2025-07-12T17:15:54+08:00
+tags = ["FICTION"]
 draft = false
 description = "一切有为法，如梦幻泡影，如露亦如电，应作如是观。"
 +++
