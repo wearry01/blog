@@ -288,7 +288,8 @@ CLOSED: [2024-04-29 Mon 18:12]
 ** DONE 与不可区分的随机共舞                                           :TCS:
 CLOSED: [2024-06-11 Tue 22:52]
 :PROPERTIES:
-:EXPORT_FILE_NAME: imitation
+:EXPORT_FILE_NAME: indistinguishability
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :description 当发现两片看起来一模一样的叶子时，在沮丧于它们的难以区分之前，也许值得高兴的一点是——我们找到了与前一片叶子能够胜任的工作相同的又一片叶子！
 :END:
 
 *** 模仿游戏
