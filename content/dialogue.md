@@ -2,7 +2,8 @@
 title = "叶公子如是说"
 author = ["Wearry"]
 date = 2025-10-03T14:08:00+08:00
-lastmod = 2025-10-03T14:08:05+08:00
+lastmod = 2025-10-05T12:09:02+08:00
+tags = ["随笔"]
 draft = false
 description = "「这对话的内容像是在说相声，只可惜没有录下来……」"
 +++
