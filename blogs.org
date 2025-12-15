@@ -573,7 +573,7 @@ CLOSED: [2025-10-05 Sun 22:45]
 
 要是只有一个意思的东西。要是干净的。不含杂质的。
 
-别跟我提 =正义= ，别跟我提 =爱= ，那些全是带血的刀子和谎言。
+别跟我提「正义」 ，别跟我提「爱」，那些全是带血的刀子和谎言。
 
 给我一个……实体。
 
@@ -600,27 +600,60 @@ CLOSED: [2025-10-05 Sun 22:45]
 那是他能抓住的，最后一个词。
 
 * Blog Drafts                                                          :BLOG:
-** TODO Unique
+** TODO Narcissus
 :PROPERTIES:
-:EXPORT_FILE_NAME: unique
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :description "Par autrui, je suis ce que je suis. Mais ce que je suis pour autrui, je ne le suis pas pour moi-même." ——Jean-Paul Sartre, /L’Être et le Néant/
+:EXPORT_FILE_NAME: narcissus
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :description "Par autrui, je suis ce que je suis. Mais ce que je suis pour autrui, je ne le suis pas pour moi-même." ——Jean-Paul Sartre, L’Être et le Néant
 :END:
 
-*** I
-
+*** 影子受害人
+# 交代案件的发生背景，sketch主要出场的人物性格，留下一些悬念
 麦金
 
-*** II
+*** 「普罗米修斯」
+# 不受管制的克隆：灰色地带
 
-*** III
+*** 麦金的日记·其一
+# 以麦金的视角重现克隆成功的心情和对克隆体表现出取而代之野心的担忧，叙述性诡计
 
-*** IV
+*** 最后一块拼图
+# 决定性的定罪物证，成功结案
 
-*** V
-** TODO 天地幽幽
+*** 尾声
+# 对真相依然心存疑虑的探员通过黑市克隆服务的入口找到了真正的凶手，向他提出了自己的疑问
+
+「还有最后一件事情我不太明白，你的动机到底是什么呢？」
+
+回应他的是漫长的沉默，麦金摇了摇头轻声叹息，指向他背后的镜子。
+
+他回头望去，正好对上了镜子里自己的视线。
+
+*** 附录：麦金的日记·其二
+# 第一视角揭露完整的案件经过
+
+** TODO 天地悠悠
 :PROPERTIES:
 :EXPORT_FILE_NAME: beijing
 :END:
+
+北大学一食堂南边的古树
+
+阎步克课堂上的流言：军机处
+
+北京是一座让人忘记时间的城市
+
+------
+
+从 时间上的尺度 到 空间上的尺度
+
+空间上从碎片到连续的体验，从内部到外部的感觉
+
+------
+
+对幽州台歌的新理解：怆然泪下是因为缺少生命的锚点
+
+个人相比起时间空间上超大的跨度，显得那么的渺小
+
 * Footnotes
 
 [fn:5] Russell Impagliazzo, Avi Wigderson.  /P = BPP if E Requires
